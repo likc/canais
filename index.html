@@ -1,542 +1,1720 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<script src="https://kit.fontawesome.com/3cf8f5796a.js" crossorigin="anonymous"></script>
+        <meta name="description" content="Canais.net: Assista mais de 5000 canais da TV brasileira, filmes e séries por apenas R$25/mês. Sem instalação, sem antena, sem fidelidade!">
+        <meta name="keywords" content="IPTV, canais brasileiros, TV online, filmes, séries, streaming, TV por internet">
+        <script src="https://kit.fontawesome.com/3cf8f5796a.js" crossorigin="anonymous"></script>
         <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!-- Animate Min CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
         <!-- FontAwesome Min CSS -->
-        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-        <!-- Magnific Popup Min CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-        <!-- Flaticon CSS -->
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <!-- Nice Select Min CSS -->
-        <link rel="stylesheet" href="assets/css/nice-select.min.css">
-        <!-- MeanMenu CSS -->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!-- Owl Carousel Min CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
-		
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <title>Canais.net - Assista à TV Brasileira, Filmes e Séries pelo melhor preço</title>
 
-
-        <title>Canais.net - Canais da TV Brasileira, Filmes e Séries pelo melhor preço.</title>
-
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="/api/placeholder/32/32">
+        
+        <!-- Estilos melhorados -->
+        <style>
+            :root {
+                --primary-color: #2563eb;
+                --secondary-color: #3b82f6;
+                --dark-color: #1e293b;
+                --light-color: #f8fafc;
+                --accent-color: #ef4444;
+                --success-color: #10b981;
+                --text-dark: #334155;
+                --text-light: #64748b;
+                --border-color: #e2e8f0;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: var(--text-dark);
+                scroll-behavior: smooth;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            
+            /* Header Styles */
+            .header {
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+            
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0;
+            }
+            
+            .logo img {
+                height: 40px;
+                width: auto;
+            }
+            
+            .nav-links {
+                display: flex;
+                list-style: none;
+                gap: 2rem;
+                align-items: center;
+            }
+            
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-dark);
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+            
+            .currency-selector {
+                position: relative;
+            }
+            
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown-btn {
+                background: rgba(37, 99, 235, 0.1);
+                border: 1px solid rgba(37, 99, 235, 0.2);
+                border-radius: 0.5rem;
+                padding: 0.5rem 1rem;
+                color: var(--primary-color);
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+                font-size: 0.9rem;
+            }
+            
+            .dropdown-btn:hover {
+                background: rgba(37, 99, 235, 0.15);
+                border-color: var(--primary-color);
+            }
+            
+            .dropdown-content {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: white;
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                z-index: 1000;
+                min-width: 200px;
+                display: none;
+                overflow: hidden;
+            }
+            
+            .dropdown-content.show {
+                display: block;
+            }
+            
+            .dropdown-item {
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .dropdown-item:last-child {
+                border-bottom: none;
+            }
+            
+            .dropdown-item:hover {
+                background: var(--light-color);
+            }
+            
+            .dropdown-item span {
+                font-size: 1.2rem;
+            }
+            
+            .dropdown-item div {
+                flex: 1;
+            }
+            
+            .dropdown-item div div {
+                font-weight: 600;
+                color: var(--text-dark);
+                margin-bottom: 0.25rem;
+            }
+            
+            .dropdown-item small {
+                color: var(--text-light);
+                font-size: 0.8rem;
+            }
+            
+            .region-notice {
+                background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1));
+                border: 1px solid rgba(37, 99, 235, 0.2);
+                border-radius: 1rem;
+                padding: 1rem;
+                text-align: center;
+                margin: 2rem 0;
+                display: none;
+            }
+            
+            .region-notice.show {
+                display: block;
+            }
+            
+            .region-notice h4 {
+                color: var(--primary-color);
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .region-notice p {
+                color: var(--text-dark);
+                margin: 0;
+                font-size: 0.9rem;
+            }
+            
+            .btn-primary {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                padding: 0.75rem 1.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            }
+            
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+                color: white;
+            }
+            
+            .btn-outline {
+                background: transparent;
+                color: var(--primary-color);
+                border: 2px solid var(--primary-color);
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-outline:hover {
+                background: var(--primary-color);
+                color: white;
+                transform: translateY(-2px);
+            }
+            
+            /* Hero Section */
+            .hero {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                padding: 8rem 0 4rem;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+            }
+            
+            .hero-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 1.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-text p {
+                font-size: 1.25rem;
+                color: var(--text-light);
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
+            
+            .highlight-box {
+                background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1));
+                border: 1px solid rgba(37, 99, 235, 0.2);
+                border-radius: 1rem;
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .highlight-box h3 {
+                color: var(--primary-color);
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .highlight-box p {
+                color: var(--text-dark);
+                margin: 0;
+                font-size: 1rem;
+            }
+            
+            .price {
+                font-size: 3rem;
+                font-weight: 700;
+                color: var(--accent-color);
+                margin: 1.5rem 0;
+            }
+            
+            .price span {
+                font-size: 1.5rem;
+                color: var(--text-light);
+            }
+            
+            .hero-buttons {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .hero-image {
+                text-align: center;
+            }
+            
+            .hero-visual {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 400px;
+                padding: 2rem;
+            }
+            
+            .main-screen {
+                background: linear-gradient(145deg, #1e293b, #334155);
+                border-radius: 20px;
+                padding: 30px;
+                box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+                border: 3px solid #475569;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .screen-content {
+                background: #0f172a;
+                border-radius: 15px;
+                padding: 20px;
+                min-width: 320px;
+            }
+            
+            .channel-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+            
+            .channel-item {
+                background: rgba(59, 130, 246, 0.1);
+                border: 1px solid rgba(59, 130, 246, 0.3);
+                border-radius: 8px;
+                padding: 15px 10px;
+                text-align: center;
+                color: white;
+                font-size: 12px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .channel-item.active {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                border-color: var(--primary-color);
+                box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            }
+            
+            .channel-item:hover {
+                background: rgba(59, 130, 246, 0.2);
+                transform: translateY(-2px);
+            }
+            
+            .channel-item i {
+                display: block;
+                font-size: 16px;
+                margin-bottom: 8px;
+                color: var(--secondary-color);
+            }
+            
+            .channel-item.active i {
+                color: white;
+            }
+            
+            .floating-devices {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+            
+            .device {
+                position: absolute;
+                background: #1f2937;
+                border-radius: 15px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+                border: 2px solid #374151;
+            }
+            
+            .device.phone {
+                width: 60px;
+                height: 100px;
+                top: 20%;
+                left: 10%;
+                border-radius: 20px;
+            }
+            
+            .device.tablet {
+                width: 80px;
+                height: 60px;
+                bottom: 15%;
+                right: 8%;
+                border-radius: 12px;
+            }
+            
+            .device-screen {
+                background: var(--primary-color);
+                margin: 8px;
+                border-radius: 8px;
+                height: calc(100% - 16px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 8px;
+                color: white;
+                font-weight: 600;
+            }
+            
+            .live-indicator {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            
+            .dot {
+                width: 6px;
+                height: 6px;
+                background: #ef4444;
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.3; }
+            }
+            
+            .video-player i {
+                font-size: 20px;
+                opacity: 0.9;
+            }
+            
+            .floating-icons {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+            
+            .icon-bubble {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 14px;
+                animation: float 3s ease-in-out infinite;
+            }
+            
+            .icon-bubble:nth-child(1) {
+                top: 15%;
+                right: 20%;
+                animation-delay: 0s;
+            }
+            
+            .icon-bubble:nth-child(2) {
+                bottom: 25%;
+                left: 15%;
+                animation-delay: 1s;
+            }
+            
+            .icon-bubble:nth-child(3) {
+                top: 40%;
+                right: 10%;
+                animation-delay: 2s;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+            
+            /* Section Styles */
+            .section {
+                padding: 5rem 0;
+            }
+            
+            .section-title {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+            }
+            
+            .section-title p {
+                font-size: 1.25rem;
+                color: var(--text-light);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .feature-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                border: 1px solid var(--border-color);
+            }
+            
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 1rem;
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+            }
+            
+            .feature-card p {
+                color: var(--text-light);
+                line-height: 1.6;
+            }
+            
+            .steps-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .step-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                position: relative;
+                border: 1px solid var(--border-color);
+            }
+            
+            .step-number {
+                position: absolute;
+                top: -15px;
+                left: 2rem;
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+            
+            .step-card h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .step-card p {
+                color: var(--text-light);
+                line-height: 1.6;
+            }
+            
+            .devices-section {
+                background: var(--dark-color);
+                color: white;
+            }
+            
+            .devices-section .section-title h2,
+            .devices-section .section-title p {
+                color: white;
+            }
+            
+            .devices-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .device-card {
+                background: rgba(255,255,255,0.1);
+                padding: 2rem 1rem;
+                border-radius: 1rem;
+                text-align: center;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .device-card:hover {
+                background: rgba(255,255,255,0.15);
+                transform: translateY(-5px);
+            }
+            
+            .device-card i {
+                font-size: 2.5rem;
+                color: var(--secondary-color);
+                margin-bottom: 1rem;
+            }
+            
+            .device-card h4 {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: white;
+            }
+            
+            .pricing-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .pricing-card {
+                background: white;
+                border-radius: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                overflow: hidden;
+                border: 1px solid var(--border-color);
+                position: relative;
+            }
+            
+            .pricing-card.featured {
+                border: 2px solid var(--primary-color);
+                transform: scale(1.05);
+            }
+            
+            .pricing-badge {
+                position: absolute;
+                top: 1rem;
+                right: -2rem;
+                background: var(--accent-color);
+                color: white;
+                padding: 0.5rem 3rem;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transform: rotate(45deg);
+            }
+            
+            .pricing-header {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                padding: 2rem;
+                text-align: center;
+            }
+            
+            .pricing-header h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+            
+            .pricing-price {
+                font-size: 3rem;
+                font-weight: 700;
+                margin: 1rem 0;
+            }
+            
+            .pricing-price span {
+                font-size: 1.2rem;
+                opacity: 0.9;
+            }
+            
+            .pricing-features {
+                padding: 2rem;
+            }
+            
+            .pricing-features ul {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .pricing-features li {
+                padding: 0.75rem 0;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                color: var(--text-dark);
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .pricing-features li:last-child {
+                border-bottom: none;
+            }
+            
+            .pricing-features i {
+                color: var(--success-color);
+                font-size: 1.1rem;
+            }
+            
+            .pricing-footer {
+                padding: 0 2rem 2rem;
+                text-align: center;
+            }
+            
+            .pricing-note {
+                color: var(--accent-color);
+                font-weight: 600;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .payment-methods {
+                background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
+                border: 1px solid rgba(37, 99, 235, 0.1);
+                border-radius: 1rem;
+                padding: 2rem;
+                text-align: center;
+                margin-top: 3rem;
+            }
+            
+            .payment-methods h3 {
+                color: var(--primary-color);
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .payment-methods p {
+                color: var(--text-dark);
+                margin-bottom: 1.5rem;
+            }
+            
+            .payment-icons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .payment-icon {
+                background: white;
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                border: 1px solid var(--border-color);
+                transition: all 0.3s ease;
+            }
+            
+            .payment-icon:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            }
+            
+            .faq-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 1rem;
+            }
+            
+            .faq-item {
+                background: white;
+                border-radius: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                border: 1px solid var(--border-color);
+                margin-bottom: 1rem;
+            }
+            
+            .faq-question {
+                padding: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                font-weight: 600;
+                color: var(--text-dark);
+                border: none;
+                background: none;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .faq-question:hover {
+                color: var(--primary-color);
+            }
+            
+            .faq-answer {
+                padding: 0 1.5rem 1.5rem;
+                color: var(--text-light);
+                line-height: 1.6;
+                display: none;
+            }
+            
+            .faq-answer.show {
+                display: block;
+            }
+            
+            .contact-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+            
+            .contact-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 1rem;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                border: 1px solid var(--border-color);
+            }
+            
+            .contact-card i {
+                font-size: 2.5rem;
+                color: var(--primary-color);
+                margin-bottom: 1rem;
+            }
+            
+            .contact-card h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+            }
+            
+            .contact-card p {
+                color: var(--text-light);
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Footer */
+            .footer {
+                background: var(--dark-color);
+                color: white;
+                padding: 3rem 0 1rem;
+            }
+            
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: white;
+            }
+            
+            .footer-section p,
+            .footer-section li {
+                color: rgba(255,255,255,0.8);
+                line-height: 1.6;
+            }
+            
+            .footer-section ul {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .footer-section li {
+                margin-bottom: 0.5rem;
+            }
+            
+            .footer-section a {
+                color: rgba(255,255,255,0.8);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            
+            .footer-section a:hover {
+                color: white;
+            }
+            
+            .footer-bottom {
+                border-top: 1px solid rgba(255,255,255,0.1);
+                padding-top: 2rem;
+                text-align: center;
+                color: rgba(255,255,255,0.6);
+            }
+            
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+                
+                .hero-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+                
+                .hero-text h1 {
+                    font-size: 2.5rem;
+                }
+                
+                .hero-buttons {
+                    justify-content: center;
+                }
+                
+                .faq-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .pricing-card.featured {
+                    transform: none;
+                }
+                
+                .payment-icons {
+                    justify-content: center;
+                }
+            }
+        </style>
     </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/625264bcb0d10b6f3e6c8883/1g08tj0iu';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    
     <body>
-
-
-
-        <!-- Start Header Area -->
-        <header class="header-area">
-            
-
-            <!-- Start Navbar Area -->
-            <div class="navbar-area">
-                <div class="bahama-mobile-nav">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="assets/img/logo.png" alt="logo">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bahama-nav">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-md navbar-light">
-                            <a class="navbar-brand" href="index.html">
-                                <img src="assets/img/logo.png" alt="logo">
-                            </a>
-
-                          
-
-                                <div class="others-options">
-                                    <a href="https://wa.me//5511958766766?text=Ol%C3%A1,%20Gostaria%20de%20um%20teste%20gratis" target="_blank" class="btn btn-primary">Solicitar Teste</a>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <nav class="navbar">
+                    <a href="#" class="logo">
+                        <img src="assets/img/logo.png" alt="Canais.net Logo" style="height: 40px;">
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#dispositivos">Dispositivos</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li class="currency-selector">
+                            <div class="dropdown">
+                                <button class="dropdown-btn" onclick="toggleCurrencyDropdown()">
+                                    <span id="current-flag">🇧🇷</span>
+                                    <span id="current-currency">BRL</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-content" id="currencyDropdown">
+                                    <div class="dropdown-item" onclick="changeCurrency('BRL', '🇧🇷')">
+                                        <span>🇧🇷</span>
+                                        <div>
+                                            <div>Brasil</div>
+                                            <small>Real Brasileiro (R$)</small>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item" onclick="changeCurrency('USD', '🇺🇸')">
+                                        <span>🇺🇸</span>
+                                        <div>
+                                            <div>Estados Unidos</div>
+                                            <small>Dólar Americano ($)</small>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item" onclick="changeCurrency('EUR', '🇪🇺')">
+                                        <span>🇪🇺</span>
+                                        <div>
+                                            <div>Europa</div>
+                                            <small>Euro (€)</small>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item" onclick="changeCurrency('JPY', '🇯🇵')">
+                                        <span>🇯🇵</span>
+                                        <div>
+                                            <div>Japão</div>
+                                            <small>Iene Japonês (¥)</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </nav>
-                    </div>
-                </div>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/819042662408?text=Olá, gostaria de um teste grátis" target="_blank" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Teste Grátis
+                    </a>
+                </nav>
             </div>
-            <!-- End Navbar Area -->
         </header>
-        <!-- End Header Area -->
 
-        <!-- Start Main Banner Area -->
-        <div class="main-banner">
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
             <div class="container">
-                <div class="row align-items-center m-0">
-                    <div class="col-lg-6 p-0">
-                        <div class="main-banner-content">
-                            <span class="sub-title"><i class="flaticon-wifi-signal"></i> Toda a programação em Português(Brasil)</span>
-                            <h1>Canais de TV, Filmes e Séries Pelo Melhor Preço</h1>.
-                            <p>Toda a programação da TV a cabo você encontra aqui, além de um catálogo completo de filmes e séries.</p>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Toda a TV Brasileira em um só lugar</h1>
+                        <p>Acesse mais de 5.000 canais ao vivo, filmes e séries em alta qualidade. Sem antena, sem instalação, sem fidelidade — apenas sua internet e nosso serviço premium.</p>
 
-                            <div class="price">
-                                R$25 <span>/mês</span>
-                            </div>
+                        <div class="highlight-box">
+                            <h3><i class="fas fa-gift"></i> Teste Grátis por 3 horas!</h3>
+                            <p>Experimente todo o nosso conteúdo sem compromisso. Cancele quando quiser, sem taxas ou multas.</p>
+                        </div>
 
-                            <div class="btn-box">
-                               <a href="#planos" class="btn btn-primary">Ver os Planos</a> <a href="https://wa.me//5511958766766?text=Ol%C3%A1,%20Gostaria%20de%20um%20teste%20gratis" target="_blank" class="btn btn-primary">Solicitar Teste Gratis</a>
+                        <div class="price">
+                            <span class="price-value" data-brl="R$25" data-usd="$5" data-eur="€4.50" data-jpy="¥700">R$25</span> <span class="price-period">/mês</span>
+                        </div>
 
-                                </div>
+                        <div class="hero-buttons">
+                            <a href="#planos" class="btn-primary">Ver Planos <i class="fas fa-chevron-down"></i></a>
+                            <a href="https://wa.me/819042662408?text=Olá, gostaria de um teste grátis" target="_blank" class="btn-outline">Solicitar Teste</a>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 p-0">
-                        <div class="banner-image">
-                            <img src="assets/img/banner-img1.png" alt="image">
+                    <div class="hero-image">
+                        <div class="hero-visual">
+                            <div class="main-screen">
+                                <div class="screen-content">
+                                    <div class="channel-grid">
+                                        <div class="channel-item active">
+                                            <i class="fas fa-play"></i>
+                                            <span>Globo</span>
+                                        </div>
+                                        <div class="channel-item">
+                                            <i class="fas fa-futbol"></i>
+                                            <span>SporTV</span>
+                                        </div>
+                                        <div class="channel-item">
+                                            <i class="fas fa-film"></i>
+                                            <span>Telecine</span>
+                                        </div>
+                                        <div class="channel-item">
+                                            <i class="fas fa-child"></i>
+                                            <span>Disney</span>
+                                        </div>
+                                        <div class="channel-item">
+                                            <i class="fas fa-newspaper"></i>
+                                            <span>CNN Brasil</span>
+                                        </div>
+                                        <div class="channel-item">
+                                            <i class="fas fa-music"></i>
+                                            <span>Multishow</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-devices">
+                                <div class="device phone">
+                                    <div class="device-screen">
+                                        <div class="live-indicator">
+                                            <span class="dot"></span>
+                                            AO VIVO
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="device tablet">
+                                    <div class="device-screen">
+                                        <div class="video-player">
+                                            <i class="fas fa-play-circle"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-icons">
+                                <div class="icon-bubble"><i class="fas fa-download"></i></div>
+                                <div class="icon-bubble"><i class="fas fa-cloud"></i></div>
+                                <div class="icon-bubble"><i class="fas fa-hd-video"></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="shape-img1"><img src="assets/img/shape-image/1.png" alt="imgae"></div>
-        </div>
-        <!-- End Main Banner Area -->
-
-        <!-- Start Features Area -->
-        <section class="features-area bg-image ptb-100">
+        <!-- Features Section -->
+        <section class="section">
             <div class="container">
                 <div class="section-title">
+                    <h2>Por que escolher a Canais.net?</h2>
+                    <p>Oferecemos o melhor serviço de streaming com qualidade superior e preço justo</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>Conteúdo Premium</h3>
+                        <p>Acesse mais de 5.000 canais ao vivo em SD/HD/4K, incluindo esportes, filmes, documentários e canais abertos. Nossa biblioteca conta com mais de 20.000 filmes e séries.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <h3>Teste Antes de Assinar</h3>
+                        <p>Oferecemos um teste gratuito de 3 horas com acesso completo ao nosso serviço. Transparência total para você ter certeza de que está fazendo a escolha certa.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <h3>Suporte 24/7</h3>
+                        <p>Nossa equipe está sempre disponível para resolver qualquer problema ou dúvida. Atendimento rápido e eficiente via WhatsApp para garantir a melhor experiência.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="como-funciona" class="section" style="background: var(--light-color);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Como Funciona</h2>
+                    <p>Comece a assistir em apenas 3 passos simples</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Escolha seu plano</h3>
+                        <p>Selecione entre nossos planos mensal, semestral ou anual com descontos progressivos para economizar mais.</p>
+                    </div>
                     
-                    <h2>Por que assinar com a gente?</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-features-box">
-                            <div class="icon">
-                               <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>Quantidade e Qualidade</h3>
-
-                            <p>Temos uma grade repleta de Canais de Esportes, Filmes, Documentários, Canais Aberto e vários outros nas qualidades SD/HD/4K.
-								Além de mais de 20.000 Filmes e Séries, juntamente com todos os mais novos lançamentos.</p>
-
-                            <div class="back-icon">
-                                <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
-                            </div>
-
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Instale o aplicativo</h3>
+                        <p>Baixe o app IPTV Smarters em qualquer dispositivo compatível: Smart TV, smartphone, tablet, TV Box ou computador.</p>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-features-box">
-                            <div class="icon">
-                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-
-                            </div>
-
-                            <h3>Teste antes de Assinar</h3>
-
-                            <p>Oferecemos um teste gratuito de 3 horas de nosso pacote completo (Canais de TV, Filmes e Séries). 
-								<br>prezamos pela transparência e garantimos qualidade,
-								assim você poderá ter a certeza de qual plano assinar com a gente =)</p>
-
-                            <div class="back-icon">
-                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                            </div>
-
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
-                        <div class="single-features-box">
-                            <div class="icon">
-                                <i class="flaticon-support"></i>
-                            </div>
-
-                            <h3>Atendimento ao Cliente</h3>
-
-                            <p>Temos um atendimento online sempre disponível
-							para resolução de qualquer dúvida ou problema, <br>fale diretamente com nossos atendentes, através do <a href="https://wa.me//5511958766766?text=Ol%C3%A1,%20Tenho%20uma%20duvida" target=_blank> WhatsApp clicando aqui!. </a></p>
-
-                            <div class="back-icon">
-                                <i class="flaticon-support"></i>
-                            </div>
-
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Features Area -->
-
-       
-
-        <!-- Start Services Area -->
-        <section class="services-area bg-image ptb-100">
-            <div class="container">
-                <div class="section-title">
                     
-                    <h2>Onde posso assistir?</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                               <i class="fa fa-television" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>Smart TV</h3>
-
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-
-                            </div>
-
-                            <h3>Smartphone (Android/iOS)</h3>
-
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                                <i class="fa fa-laptop" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>PC / Notebook</h3>
-
-                           
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                                <i class="fa fa-th-large" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>TV Box/ Roku</h3>
-
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                             <i class="fa fa-tablet" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>Tablet</h3>
-
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                                <i class="fa fa-android" aria-hidden="true"></i>
-                            </div>
-
-                            <h3>FireTV/ ChromeCast/ MiStick</h3>
-
-                            
-                        </div>
-						
-                    </div>
-					
-                </div>
-				
-            </div>
-        </section>
-        <!-- End Services Area -->
-
-        <!-- Start Pricing Area -->
-        <section class="pricing-area ptb-100 extra-mb pb-0">
-            <div id="planos" class="container">
-                <div class="section-title">
-                 
-                    </span>
-                    <h2>Nossos Planos</h2>
-                    <p>Temos 3 tipos de planos para agradar você e o seu bolso.</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-pricing-table">
-                            <div class="pricing-header">
-                                <div class="icon">
-                                    <i class="flaticon-online-shop"></i>
-                                </div>
-
-                                <span>Plano Iniciante</span>
-                                <h3>Mensal <br> (30 dias)</h3>
-                            </div>
-
-                            <ul class="pricing-features-list">
-								<li><i class="flaticon-check-mark"></i> Filmes e Séries</li>
-								<li><i class="flaticon-check-mark"></i> Mais de 5000 Canais</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Esportes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Filmes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais da TV Aberta</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Documentários</li>
-								<li><i class="flaticon-check-mark"></i> Canais Pay-per-view</li>
-                            </ul>
-
-                            <div class="price">
-                                <span>Por apenas</span>
-                                <span>R$</span>
-                                25
-                                <span>/mês</span>
-								<h6> <font color="red"> ㅤㅤㅤㅤ</font></h6>
-                            </div>
-
-                            <a href="https://Canais.net/painel/register/" target="_blank" class="view-plans-btn">Assinar</a>
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-pricing-table active">
-                            <div class="pricing-header">
-                                <div class="icon">
-                                    <i class="flaticon-online-shop"></i>
-                                </div>
-
-                                <span>Plano VIP</span>
-                                <h3>Semestral <br>(180 dias)</h3>
-                            </div>
-
-                            <ul class="pricing-features-list">
-								<li><i class="flaticon-check-mark"></i> Filmes e Séries</li>
-								<li><i class="flaticon-check-mark"></i> Mais de 5000 Canais</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Esportes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Filmes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais da TV Aberta</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Documentários</li>
-								<li><i class="flaticon-check-mark"></i> Canais Pay-per-view</li>
-                            </ul>
-
-                            <div class="price">
-                                <span>Por apenas</span>
-                                <span>R$</span>
-                                125
-                                <span>/6 meses</span>
-								<h6> <font color="red"> (1 mês grátis)</font></h6>
-                            </div>
-							
-
-                            <a href="https://Canais.net/painel/register/" target="_blank" class="view-plans-btn">Assinar</a>
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
-                        <div class="single-pricing-table">
-                            <div class="pricing-header">
-                                <div class="icon">
-                                    <i class="flaticon-online-shop"></i>
-                                </div>
-
-                                <span>Plano Ultra</span>
-                                <h3>Anual <br>(365 dias)</h3>
-                            </div>
-
-                            <ul class="pricing-features-list">
-								<li><i class="flaticon-check-mark"></i> Filmes e Séries</li>
-								<li><i class="flaticon-check-mark"></i> Mais de 5000 Canais</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Esportes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Filmes</li>
-                                <li><i class="flaticon-check-mark"></i> Canais da TV Aberta</li>
-                                <li><i class="flaticon-check-mark"></i> Canais de Documentários</li>
-								<li><i class="flaticon-check-mark"></i> Canais Pay-per-view</li>
-                            </ul>
-
-                            <div class="price">
-                                <span>Por apenas</span>
-                                <span>R$</span>
-                                250
-                                <span>/ano</span>
-								<h6> <font color="red"> (2 meses grátis)</font></h6>
-                            </div>
-
-                            <a href="https://Canais.net/painel/register/" target="_blank" class="view-plans-btn">Assinar</a>
-
-                            <div class="image-box">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                                <img src="assets/img/shape-image/2.png" alt="image">
-                            </div>
-                        </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Comece a assistir</h3>
+                        <p>Insira suas credenciais no aplicativo e comece imediatamente a desfrutar de todo o conteúdo disponível na nossa plataforma.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Pricing Area -->
 
-        <!-- Start FAQ Area -->
-        <section class="faq-area bg-image ptb-100 extra-pt">
+        <!-- Devices Section -->
+        <section id="dispositivos" class="section devices-section">
             <div class="container">
                 <div class="section-title">
-                    <span>
-                       
-                           <h2> Perguntas Frequentes:</h2>
+                    <h2>Assista em qualquer dispositivo</h2>
+                    <p>Nosso serviço é compatível com praticamente todos os dispositivos conectados</p>
+                </div>
+
+                <div class="devices-grid">
+                    <div class="device-card">
+                        <i class="fas fa-tv"></i>
+                        <h4>Smart TV</h4>
+                    </div>
+                    
+                    <div class="device-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Smartphone</h4>
+                    </div>
+                    
+                    <div class="device-card">
+                        <i class="fas fa-laptop"></i>
+                        <h4>PC/Notebook</h4>
+                    </div>
+                    
+                    <div class="device-card">
+                        <i class="fas fa-tablet-alt"></i>
+                        <h4>Tablet</h4>
+                    </div>
+                    
+                    <div class="device-card">
+                        <i class="fas fa-cube"></i>
+                        <h4>TV Box</h4>
+                    </div>
+                    
+                    <div class="device-card">
+                        <i class="fab fa-chromecast"></i>
+                        <h4>Chromecast</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="planos" class="section" style="background: var(--light-color);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Escolha o plano ideal para você</h2>
+                    <p>Todos os planos incluem acesso completo ao nosso conteúdo</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>PLANO MENSAL</h3>
+                            <p>30 dias de acesso</p>
+                            <div class="pricing-price">
+                                <span class="price-value" data-brl="R$25" data-usd="$5" data-eur="€4.50" data-jpy="¥700">R$25</span> <span class="price-period">/mês</span>
+                            </div>
+                        </div>
                         
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="faq-accordion">
-                            <ul class="accordion">
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Eu pago multa cancelando a assinatura?</a>
-                                    <p class="accordion-content">Não há contrato ou multa por cancelamento, somos transparentes e não queremos clientes insatisfeitos :).</p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Preciso de antena ou solicitar instalação?</a>
-                                    <p class="accordion-content">Nossos serviços não necessitam de nenhuma antena ou quaisquer aparato, apenas o seu dispositivo conectado a internet.</p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Tem uma velocidade de internet recomendada?</a>
-                                    <p class="accordion-content">Recomendamos que a conexão seja de 10MB ou superior.</p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Onde posso buscar suporte?</a>
-                                    <p class="accordion-content">Você pode buscar suporte pelo WhatsApp <a href="https://wa.me//5511958766766?text=Ol%C3%A1,%20Gostaria%20de%20uma%20ajuda" target=_blank>clicando aqui!. </a></p>
-                                </li>
-                                
-                                
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mais de 5.000 canais ao vivo</li>
+                                <li><i class="fas fa-check-circle"></i> Canais de esportes e PPV</li>
+                                <li><i class="fas fa-check-circle"></i> Filmes e séries (VOD)</li>
+                                <li><i class="fas fa-check-circle"></i> Qualidade SD/HD/4K</li>
+                                <li><i class="fas fa-check-circle"></i> Compatível com todos dispositivos</li>
+                                <li><i class="fas fa-check-circle"></i> Suporte 24/7</li>
+                                <li><i class="fas fa-check-circle"></i> Sem fidelidade</li>
                             </ul>
                         </div>
+                        
+                        <div class="pricing-footer">
+                            <a href="https://wa.me/819042662408?text=Olá, quero assinar o plano mensal" target="_blank" class="btn-primary">Assinar Agora</a>
+                        </div>
                     </div>
-
-                    <div class="col-lg-6 col-md-12">
-                        <div class="faq-accordion">
-                            <ul class="accordion">
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Existe outros planos? </a>
-                                    <p class="accordion-content">Em datas especiais temos planos especiais vitalício com uma ótima promoção, então fique sempre atento(a).</p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Posso assistir em quantos dispositivos?</a>
-                                    <p class="accordion-content">Cada assinatura é permitido 1 tela por vez, podendo aumentar com o pagamento de um valor extra.</p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Qual aplicativo devo baixar para assistir?</a>
-                                    <p class="accordion-content">Recomendamos o uso do app "IPTV Smarters" pois é gratuito e está disponível em todas as plataformas. 
-										<a href="https://www.iptvsmarters.com/#downloads" target="_blank">(Clique aqui para baixar)</a></p>
-                                </li>
-                                
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)"><i class="flaticon-add"></i> Posso ser um revendedor?</a>
-                                    <p class="accordion-content">Temos um sistema de revenda para você ganhar um extra também, para saber mais entre em contato conosco pelo:
-									<a href="https://wa.me//5511958766766?text=Ol%C3%A1,%20Gostaria%20de%20ser%20revendedor" target="_blank">WhatsApp</p></a>
-                                </li>
-                                
+                    
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Mais Popular</div>
+                        <div class="pricing-header">
+                            <h3>PLANO SEMESTRAL</h3>
+                            <p>180 dias de acesso</p>
+                            <div class="pricing-price">
+                                <span class="price-value" data-brl="R$125" data-usd="$25" data-eur="€22" data-jpy="¥3,500">R$125</span> <span class="price-period">/6 meses</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mais de 5.000 canais ao vivo</li>
+                                <li><i class="fas fa-check-circle"></i> Canais de esportes e PPV</li>
+                                <li><i class="fas fa-check-circle"></i> Filmes e séries (VOD)</li>
+                                <li><i class="fas fa-check-circle"></i> Qualidade SD/HD/4K</li>
+                                <li><i class="fas fa-check-circle"></i> Compatível com todos dispositivos</li>
+                                <li><i class="fas fa-check-circle"></i> Suporte 24/7</li>
+                                <li><i class="fas fa-check-circle"></i> Sem fidelidade</li>
                             </ul>
+                        </div>
+                        
+                        <div class="pricing-footer">
+                            <a href="https://wa.me/819042662408?text=Olá, quero assinar o plano semestral" target="_blank" class="btn-primary">Assinar Agora</a>
+                                                            <p class="pricing-note savings-note" data-brl="Economize R$25 (1 mês grátis)" data-usd="Economize $5 (1 mês grátis)" data-eur="Economize €4.50 (1 mês grátis)" data-jpy="Economize ¥700 (1 mês grátis)">Economize R$25 (1 mês grátis)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>PLANO ANUAL</h3>
+                            <p>365 dias de acesso</p>
+                            <div class="pricing-price">
+                                <span class="price-value" data-brl="R$250" data-usd="$50" data-eur="€45" data-jpy="¥7,000">R$250</span> <span class="price-period">/ano</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mais de 5.000 canais ao vivo</li>
+                                <li><i class="fas fa-check-circle"></i> Canais de esportes e PPV</li>
+                                <li><i class="fas fa-check-circle"></i> Filmes e séries (VOD)</li>
+                                <li><i class="fas fa-check-circle"></i> Qualidade SD/HD/4K</li>
+                                <li><i class="fas fa-check-circle"></i> Compatível com todos dispositivos</li>
+                                <li><i class="fas fa-check-circle"></i> Suporte 24/7</li>
+                                <li><i class="fas fa-check-circle"></i> Sem fidelidade</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pricing-footer">
+                            <a href="https://wa.me/819042662408?text=Olá, quero assinar o plano anual" target="_blank" class="btn-primary">Assinar Agora</a>
+                                                            <p class="pricing-note savings-note" data-brl="Economize R$50 (2 meses grátis)" data-usd="Economize $10 (2 meses grátis)" data-eur="Economize €9 (2 meses grátis)" data-jpy="Economize ¥1,400 (2 meses grátis)">Economize R$50 (2 meses grátis)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3><i class="fas fa-credit-card"></i> Formas de Pagamento</h3>
+                    <p>Aceitamos cartão de crédito, boleto bancário, PIX e transferência bancária</p>
+                    <div class="payment-icons">
+                        <div class="payment-icon">
+                            <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+                                <rect width="60" height="30" rx="4" fill="#1A1F71"/>
+                                <text x="30" y="20" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">VISA</text>
+                            </svg>
+                        </div>
+                        <div class="payment-icon">
+                            <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+                                <rect width="60" height="30" rx="4" fill="#EB001B"/>
+                                <circle cx="20" cy="15" r="8" fill="#FF5F00"/>
+                                <circle cx="40" cy="15" r="8" fill="#F79E1B"/>
+                                <text x="30" y="25" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">MASTERCARD</text>
+                            </svg>
+                        </div>
+                        <div class="payment-icon">
+                            <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+                                <rect width="60" height="30" rx="4" fill="#4DB6AC"/>
+                                <text x="30" y="20" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">PIX</text>
+                            </svg>
+                        </div>
+                        <div class="payment-icon">
+                            <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+                                <rect width="60" height="30" rx="4" fill="#FF9800"/>
+                                <text x="30" y="12" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">BOLETO</text>
+                                <text x="30" y="22" text-anchor="middle" fill="white" font-family="Arial" font-size="6">BANCÁRIO</text>
+                            </svg>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End FAQ Area -->
 
-      
-
-       
-
-        <!-- Start Footer Area -->
-        <footer class="footer-area">
-            
-
-            
-                <div class="container">
-               <center>     <p> Canais.net <i class="far fa-copyright"></i> 2024</p></center>
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Perguntas Frequentes</h2>
+                    <p>Tire suas dúvidas antes de assinar nossos serviços</p>
                 </div>
-            
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Preciso de antena ou instalação especial?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Não é necessário nenhum tipo de antena ou instalação. Nosso serviço funciona através da internet, basta ter uma conexão estável e um dispositivo compatível para começar a assistir.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Qual a velocidade de internet recomendada?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Recomendamos uma conexão de pelo menos 10 Mbps para uma experiência fluida. Para conteúdo em HD, o ideal é 15 Mbps ou mais, e para conteúdo em 4K, o recomendado é 25 Mbps ou superior.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Em quantos dispositivos posso assistir simultaneamente?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Cada assinatura permite a visualização em 1 tela por vez. Caso necessite de mais telas simultâneas, oferecemos planos especiais com valor adicional. Entre em contato conosco para mais informações.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Existe alguma multa para cancelamento?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Não há nenhuma taxa ou multa por cancelamento. Somos transparentes e não queremos clientes insatisfeitos. Você pode cancelar o serviço a qualquer momento sem custos adicionais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Qual aplicativo devo usar para assistir?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Recomendamos o aplicativo "IPTV Smarters", disponível gratuitamente para todas as plataformas. É fácil de instalar e usar, oferecendo a melhor experiência para nossos serviços.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Posso ser um revendedor?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim, temos um programa de revenda para quem deseja ter uma renda extra. Oferecemos suporte completo, painel administrativo e preços competitivos. Entre em contato pelo WhatsApp para mais informações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" style="background: var(--light-color);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Entre em Contato</h2>
+                    <p>Estamos prontos para ajudar você</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>Atendimento rápido via mensagem</p>
+                        <a href="https://wa.me/819042662408?text=Olá, gostaria de falar com o suporte" target="_blank" class="btn-primary">Falar com Suporte</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>E-mail</h3>
+                        <p>Envie sua mensagem para nosso time</p>
+                        <a href="mailto:contato@canais.net" class="btn-primary">contato@canais.net</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horário de Atendimento</h3>
+                        <p>Segunda a Domingo<br>08:00 - 22:00</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="#" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="max-width: 700px; margin: 3rem auto 0; text-align: center;">
+                    <h3><i class="fas fa-gift"></i> Experimente antes de assinar!</h3>
+                    <p>Oferecemos um teste gratuito de 3 horas com acesso completo a todos os recursos. Sem compromisso!</p>
+                    <a href="https://wa.me/819042662408?text=Olá, gostaria de um teste grátis" target="_blank" class="btn-primary" style="margin-top: 1rem;">Solicitar Teste Grátis</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Canais.net</h3>
+                        <p>A melhor experiência em TV online, filmes e séries pelo menor preço do mercado. Assista onde e quando quiser!</p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Links Rápidos</h3>
+                        <ul>
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#como-funciona">Como Funciona</a></li>
+                            <li><a href="#dispositivos">Dispositivos</a></li>
+                            <li><a href="#planos">Planos</a></li>
+                            <li><a href="#faq">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Suporte</h3>
+                        <ul>
+                            <li><a href="#">Central de Ajuda</a></li>
+                            <li><a href="#">Como Instalar</a></li>
+                            <li><a href="#">Termos de Serviço</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Programa de Revenda</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contato</h3>
+                        <p><i class="fas fa-envelope"></i> contato@canais.net</p>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2025 Canais.net - Todos os direitos reservados.</p>
+                </div>
+            </div>
         </footer>
-        <!-- End Footer Area -->
 
-        <div class="go-top"><i class="fas fa-arrow-up"></i></div>
+        <!-- JavaScript -->
+        <script>
+            // Currency and region functionality
+            let currentCurrency = 'BRL';
+            
+            // Auto-detect user location (optional)
+            function detectUserLocation() {
+                fetch('https://ipapi.co/json/')
+                    .then(response => response.json())
+                    .then(data => {
+                        const countryCode = data.country_code;
+                        
+                        if (countryCode === 'JP') {
+                            changeCurrency('JPY', '🇯🇵');
+                            showRegionNotice('JP');
+                        } else if (countryCode === 'US') {
+                            changeCurrency('USD', '🇺🇸');
+                            showRegionNotice('US');
+                        } else if (isEuropeanCountry(countryCode)) {
+                            changeCurrency('EUR', '🇪🇺');
+                            showRegionNotice('EU');
+                        }
+                    })
+                    .catch(error => {
+                        console.log('Location detection failed:', error);
+                    });
+            }
+            
+            function isEuropeanCountry(countryCode) {
+                const europeanCountries = [
+                    'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 
+                    'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 
+                    'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'GB', 'NO', 'CH'
+                ];
+                return europeanCountries.includes(countryCode);
+            }
+            
+            function toggleCurrencyDropdown() {
+                const dropdown = document.getElementById('currencyDropdown');
+                dropdown.classList.toggle('show');
+            }
+            
+            function changeCurrency(currency, flag) {
+                currentCurrency = currency;
+                
+                // Update dropdown button
+                document.getElementById('current-flag').textContent = flag;
+                document.getElementById('current-currency').textContent = currency;
+                
+                // Update all prices
+                const priceElements = document.querySelectorAll('.price-value');
+                const savingsElements = document.querySelectorAll('.savings-note');
+                
+                priceElements.forEach(element => {
+                    const newPrice = element.getAttribute(`data-${currency.toLowerCase()}`);
+                    if (newPrice) {
+                        element.textContent = newPrice;
+                    }
+                });
+                
+                savingsElements.forEach(element => {
+                    const newSavings = element.getAttribute(`data-${currency.toLowerCase()}`);
+                    if (newSavings) {
+                        element.textContent = newSavings;
+                    }
+                });
+                
+                // Update WhatsApp links
+                updateWhatsAppLinks(currency);
+                
+                // Close dropdown
+                document.getElementById('currencyDropdown').classList.remove('show');
+                
+                // Show region notice based on currency
+                if (currency === 'JPY') {
+                    showRegionNotice('JP');
+                } else if (currency === 'USD') {
+                    showRegionNotice('US');
+                } else if (currency === 'EUR') {
+                    showRegionNotice('EU');
+                } else {
+                    hideRegionNotice();
+                }
+            }
+            
+            function updateWhatsAppLinks(currency) {
+                const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+                let baseMessage = 'Olá, gostaria de';
+                
+                switch(currency) {
+                    case 'JPY':
+                        baseMessage = 'Olá, sou brasileiro morando no Japão e gostaria de';
+                        break;
+                    case 'USD':
+                        baseMessage = 'Olá, sou brasileiro morando nos EUA e gostaria de';
+                        break;
+                    case 'EUR':
+                        baseMessage = 'Olá, sou brasileiro morando na Europa e gostaria de';
+                        break;
+                    default:
+                        baseMessage = 'Olá, gostaria de';
+                }
+                
+                whatsappLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href.includes('teste')) {
+                        link.setAttribute('href', `https://wa.me/819042662408?text=${encodeURIComponent(baseMessage + ' um teste grátis')}`);
+                    } else if (href.includes('mensal')) {
+                        link.setAttribute('href', `https://wa.me/819042662408?text=${encodeURIComponent(baseMessage + ' assinar o plano mensal')}`);
+                    } else if (href.includes('semestral')) {
+                        link.setAttribute('href', `https://wa.me/819042662408?text=${encodeURIComponent(baseMessage + ' assinar o plano semestral')}`);
+                    } else if (href.includes('anual')) {
+                        link.setAttribute('href', `https://wa.me/819042662408?text=${encodeURIComponent(baseMessage + ' assinar o plano anual')}`);
+                    }
+                });
+            }
+            
+            function showRegionNotice(region) {
+                let notice = document.getElementById('regionNotice');
+                if (!notice) {
+                    notice = document.createElement('div');
+                    notice.id = 'regionNotice';
+                    notice.className = 'region-notice';
+                    
+                    // Insert after hero section
+                    const heroSection = document.getElementById('inicio');
+                    heroSection.after(notice);
+                }
+                
+                let content = '';
+                switch(region) {
+                    case 'JP':
+                        content = `
+                            <h4><span>🇯🇵</span> Detectamos que você está no Japão!</h4>
+                            <p>Preços ajustados para brasileiros residentes no Japão. Aceitamos pagamentos internacionais via cartão de crédito.</p>
+                        `;
+                        break;
+                    case 'US':
+                        content = `
+                            <h4><span>🇺🇸</span> Detectamos que você está nos Estados Unidos!</h4>
+                            <p>Preços ajustados para brasileiros residentes nos EUA. Aceitamos pagamentos internacionais via cartão de crédito.</p>
+                        `;
+                        break;
+                    case 'EU':
+                        content = `
+                            <h4><span>🇪🇺</span> Detectamos que você está na Europa!</h4>
+                            <p>Preços ajustados para brasileiros residentes na Europa. Aceitamos pagamentos internacionais via cartão de crédito.</p>
+                        `;
+                        break;
+                }
+                
+                notice.innerHTML = content;
+                notice.classList.add('show');
+            }
+            
+            function hideRegionNotice() {
+                const notice = document.getElementById('regionNotice');
+                if (notice) {
+                    notice.classList.remove('show');
+                }
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const dropdown = document.getElementById('currencyDropdown');
+                const button = document.querySelector('.dropdown-btn');
+                
+                if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+            
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Auto-detect location (optional - can be removed if you prefer manual selection only)
+                detectUserLocation();
+            });
 
-        <!-- jQuery Min JS -->
-        <script src="assets/js/jquery.min.js"></script>
-        <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <!-- MeanMenu JS -->
-        <script src="assets/js/jquery.meanmenu.js"></script>
-        <!-- Magnific Popup Min JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!-- Owl Carousel Min JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <!-- Parallax Min JS -->
-        <script src="assets/js/parallax.min.js"></script>
-        <!-- Nice Select Min JS -->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!-- WOW Min JS -->
-        <script src="assets/js/wow.min.js"></script>
-        <!-- AjaxChimp Min JS -->
-        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-        <!-- Form Validator Min JS -->
-        <script src="assets/js/form-validator.min.js"></script>
-        <!-- Contact Form Min JS -->
-        <script src="assets/js/contact-form-script.js"></script>
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
+            function toggleFaq(element) {
+                const answer = element.nextElementSibling;
+                const icon = element.querySelector('i');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('show');
+                    }
+                });
+                
+                document.querySelectorAll('.faq-question i').forEach(item => {
+                    if (item !== icon) {
+                        item.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ item
+                answer.classList.toggle('show');
+                icon.style.transform = answer.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
