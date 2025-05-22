@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>			
+			
+  <!-- Global Phrases -->		
+  
+Entendi. Vou traduzir o conteúdo mantendo a estrutura XML original:
+
+xml
+Copy code
+<phrase section="Global" data="ABOUT">Sobre</phrase>
+<phrase section="Global" data="ACCESS">Acesso</phrase>
+<phrase section="Global" data="ACTIONS">Ações</phrase>
+<phrase section="Global" data="ACTIVE">Ativo</phrase>
+<phrase section="Global" data="AGREE">Sim, Eu aceito os termos de uso.</phrase>
+<phrase section="Global" data="ADD">Add</phrase>
+<phrase section="Global" data="ALERT">Alerta</phrase>
+<phrase section="Global" data="ALL">Tudo</phrase>
+<phrase section="Global" data="APPROVE">Aprovar</phrase>
+<phrase section="Global" data="ARCHIVE">Arquivo</phrase>
+<phrase section="Global" data="ASSIGN">Assinar</phrase>
+<phrase section="Global" data="ASSIGNED">Assinado</phrase>
+<phrase section="Global" data="AVATAR">Avatar</phrase>
+<phrase section="Global" data="BACK">Voltar</phrase>
+<phrase section="Global" data="BANNED">Banido</phrase>
+<phrase section="Global" data="BGIMG">Imagem de Fundo</phrase>
+<phrase section="Global" data="BROWSE">Pesquisar...</phrase>
+<phrase section="Global" data="BY">por</phrase>
+<phrase section="Global" data="CANCEL">Cancelar</phrase>
+<phrase section="Global" data="CATEGORY">Categoria</phrase>
+<phrase section="Global" data="CAPTCHA">Digite o código ao lado --&gt;</phrase>
+<phrase section="Global" data="CHARSET">A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</phrase>
+<phrase section="Global" data="CHECKOUT">Checkout</phrase>
+<phrase section="Global" data="CHOOSE">Escolher Arquivo...</phrase>
+<phrase section="Global" data="CLEAR">Limpar</phrase>
+<phrase section="Global" data="CLOSE">Fechar</phrase>
+<phrase section="Global" data="COMPLETED">Completo</phrase>
+<phrase section="Global" data="CON_PAGE">Conteúdo da Página</phrase>
+<phrase section="Global" data="CONPASS">Confirmar Senha</phrase>
+<phrase section="Global" data="CONTENT">Conteúdo</phrase>
+<phrase section="Global" data="CONTENT_NOT_FOUND">Não há nenhum conteúdo aqui !.</phrase>
+<phrase section="Global" data="COPY">Copiar</phrase>
+<phrase section="Global" data="CONTACT">Contato</phrase>
+<phrase section="Global" data="COUNTRY">País</phrase>
+<phrase section="Global" data="COUNTRY_LIST">Lista de Países</phrase>
+<phrase section="Global" data="CREATED">Criado</phrase>
+<phrase section="Global" data="CUT">Cortar</phrase>
+<phrase section="Global" data="DEFAULT">Padrão</phrase>
+<phrase section="Global" data="DELCONFIRM1">Você tem certeza que deseja remover isso?</phrase>
+<phrase section="Global" data="DELCONFIRM10">Restaurar [NAME]?</phrase>
+<phrase section="Global" data="DELCONFIRM11">Esta ação restaurará o item para seu estado original.</phrase>
+<phrase section="Global" data="DELCONFIRM2">Esta ação não pode ser desfeita!!!</phrase>
+<phrase section="Global" data="DELCONFIRM3">O item permanecerá na Lixeira por 30 dias. Para removê-lo permanentemente, vá para a Lixeira e a esvazie.</phrase>
+<phrase section="Global" data="DELCONFIRM4">Mover [NAME] para o arquivo?</phrase>
+<phrase section="Global" data="DELCONFIRM5">Isso manterá o usuário no seu Gerenciador de Freelancers, mas impedirá que eles façam login.</phrase>
+<phrase section="Global" data="DELCONFIRM6">Remover [NAME] do arquivo?</phrase>
+<phrase section="Global" data="DELCONFIRM7">Esta ação restaurará o usuário para seu estado original.</phrase>
+<phrase section="Global" data="DELCONFIRM8">Esta ação restaurará a empresa para seu estado original.</phrase>
+<phrase section="Global" data="DELETE">Excluir</phrase>
+<phrase section="Global" data="DELETE_REC">Excluir Registro</phrase>
+<phrase section="Global" data="DELETED">excluído com sucesso!</phrase>
+<phrase section="Global" data="DESCRIPTION">Descrição</phrase>
+<phrase section="Global" data="DONE">Feito</phrase>
+<phrase section="Global" data="DOWNLOAD">Download</phrase>
+<phrase section="Global" data="DOWNLOADS">Downloads</phrase>
+<phrase section="Global" data="DUPLICATE">Duplicado</phrase>
+<phrase section="Global" data="EDIT">Editar</phrase>
+<phrase section="Global" data="EDITOR">Editor</phrase>
+<phrase section="Global" data="ERROR">Erro</phrase>
+<phrase section="Global" data="EXT_LINK">Link Externo</phrase>
+<phrase section="Global" data="EXPORT">Exportar</phrase>
+<phrase section="Global" data="FIELD_R0">Campo</phrase>
+<phrase section="Global" data="FIELD_R1">precisa ser [X] ou menor em comprimento.</phrase>
+<phrase section="Global" data="FIELD_R2">precisa ser [X] ou maior em comprimento.</phrase>
+<phrase section="Global" data="FIELD_R3">é inválido.</phrase>
+<phrase section="Global" data="FIELD_R4">é uma data inválida.</phrase>
+<phrase section="Global" data="FIELD_R5">pode conter apenas caracteres numéricos.</phrase>
+<phrase section="Global" data="FIELD_R6">pode conter apenas valor numérico.</phrase>
+<phrase section="Global" data="FIELD_R7">precisa ter exatamente [X] caracteres de comprimento.</phrase>
+<phrase section="Global" data="FIELD_R8">pode conter apenas caracteres alfabéticos(a-z).</phrase>
+<phrase section="Global" data="FIELD_R9">pode conter apenas caracteres alfanuméricos.</phrase>
+<phrase section="Global" data="FIELD_R10">pode conter apenas caracteres alfabéticos e traços.</phrase>
+<phrase section="Global" data="FIELD_R11">precisa conter um dos seguintes valores: [VAL]</phrase>
+<phrase section="Global" data="FIELD_R12">precisa começar com [VAL]</phrase>
+<phrase section="Global" data="FIELD_R13">não é igual ao campo [VAL].</phrase>
+<phrase section="Global" data="FIELD_R14">não é um url válido.</phrase>
+<phrase section="Global" data="FIELD_R15">O URL não existe.</phrase>
+<phrase section="Global" data="FIELD_R16">Não é um IP válido.</phrase>
+<phrase section="Global" data="FIELD_R17">Não é um número de cartão de crédito válido.</phrase>
+<phrase section="Global" data="FIELD_R18">Não é um email válido.</phrase>
+<phrase section="Global" data="FIELD_R19">Não é um número decimal válido.</phrase>
+<phrase section="Global" data="FIELD_R100">É obrigatório.</phrase>
+<phrase section="Global" data="FILE_ERR">O arquivo não pôde ser movido da pasta de upload temporário para a pasta de imagem.</phrase>
+<phrase section="Global" data="FIND">Encontrar</phrase>
+<phrase section="Global" data="FILTER">Filtragem</phrase>
+<phrase section="Global" data="FILTER_O">Opções de Filtragem</phrase>
+<phrase section="Global" data="FREE">Grátis</phrase>
+<phrase section="Global" data="FROM">De</phrase>
+<phrase section="Global" data="GO">VAI</phrase>
+<phrase section="Global" data="GUEST">Visitante</phrase>
+<phrase section="Global" data="HELLO">Olá</phrase>
+<phrase section="Global" data="HI">Olá,</phrase>
+<phrase section="Global" data="HI_A">Boa Tarde</phrase>
+<phrase section="Global" data="HI_E">Boa Noite</phrase>
+<phrase section="Global" data="HI_M">Bom Dia</phrase>
+<phrase section="Global" data="HISTORY">Histórico</phrase>
+<phrase section="Global" data="HOME">Início</phrase>
+<phrase section="Global" data="IMAGE">Imagem</phrase>
+<phrase section="Global" data="INFO">Info</phrase>
+<phrase section="Global" data="INACTIVE">Inativo</phrase>
+<phrase section="Global" data="INVOICE">Fatura</phrase>
+<phrase section="Global" data="INSERT">Inserir</phrase>
+<phrase section="Global" data="ITEM">Item</phrase>
+<phrase section="Global" data="ITEMS">Itens</phrase>
+<phrase section="Global" data="LANGUAGE">Idioma</phrase>
+<phrase section="Global" data="LOGIN">Login</phrase>
+<phrase section="Global" data="LOGIN_R1">O usuário e/ou senha não correspondem ao banco de dados.</phrase>
+<phrase section="Global" data="LOGIN_R2">Sua conta foi banida.</phrase>
+<phrase section="Global" data="LOGIN_R3">Sua conta não está ativa.</phrase>
+<phrase section="Global" data="LOGIN_R4">Você precisa verificar seu endereço de e-mail.</phrase>
+<phrase section="Global" data="LOGIN_R5">Por favor, digite um nome de usuário e senha válidos.</phrase>
+<phrase section="Global" data="LOGIN_R6">Nome e/ou endereço de e-mail não correspondem ao banco de dados.</phrase>
+<phrase section="Global" data="LOGOUT">Sair</phrase>
+<phrase section="Global" data="MANAGE">Gerenciar</phrase>
+<phrase section="Global" data="MAX_R1">Máximo</phrase>
+<phrase section="Global" data="MEMBERSHIP">Assinatura</phrase>
+<phrase section="Global" data="METAKEYS">Meta Palavras-chave</phrase>
+<phrase section="Global" data="METADESC">Meta Descrição</phrase>
+<phrase section="Global" data="MEMBER">Membro</phrase>
+<phrase section="Global" data="MESSAGE">Mensagem</phrase>
+<phrase section="Global" data="MIN_R1">Mínimo</phrase>
+<phrase section="Global" data="MODULE">Módulo</phrase>
+<phrase section="Global" data="MODULES">Módulos</phrase>
+<phrase section="Global" data="MOVE">Mover</phrase>
+<phrase section="Global" data="MOVTOA">Movido para o arquivo</phrase>
+<phrase section="Global" data="MOVTOTR">Movido para o lixo</phrase>
+<phrase section="Global" data="MTOARCHIVE">Mover para o Arquivo</phrase>
+<phrase section="Global" data="MTOTRASH">Mover para o Lixo</phrase>
+<phrase section="Global" data="NAME">Nome</phrase>
+<phrase section="Global" data="NEVER">Nunca</phrase>
+<phrase section="Global" data="NEWPASS">Nova Senha</phrase>
+<phrase section="Global" data="NO">Não</phrase>
+ <phrase section="Global" data="NOACCESS">Desculpe, você não tem permissão para acessar esta página.</phrase>
+<phrase section="Global" data="NOFILE">Sem Arquivos...</phrase>
+<phrase section="Global" data="NONE">nenhum</phrase>
+<phrase section="Global" data="NOPROCCESS">Nada a processar!</phrase>
+<phrase section="Global" data="NOTEVAR">Por favor, não altere os valores entre [ ]</phrase>
+<phrase section="Global" data="NOTPUBLISHED">Não publicado</phrase>
+<phrase section="Global" data="NOW">Agora</phrase>
+<phrase section="Global" data="OFF">Desativado</phrase>
+<phrase section="Global" data="ON">Ativado</phrase>
+<phrase section="Global" data="PAGE">Página</phrase>
+<phrase section="Global" data="PAGE_NOT_FOUND">A página que você está procurando pode ter sido removida, alterada ou está temporariamente indisponível!</phrase>
+<phrase section="Global" data="PASTE">Colar</phrase>
+<phrase section="Global" data="PENDING">Pendente</phrase>
+<phrase section="Global" data="PLUGIN">Plugin</phrase>
+<phrase section="Global" data="PLUGINS">Plugins</phrase>
+<phrase section="Global" data="POST">Postagem</phrase>
+<phrase section="Global" data="PREVIEW">Visualização</phrase>
+<phrase section="Global" data="PRIVACY">Política de Privacidade</phrase>
+<phrase section="Global" data="PROCCESS_C_ERR">Ocorreu um erro ao processar o arquivo de configuração</phrase>
+<phrase section="Global" data="PROCCESS_ERR">Preencha os seguintes campos obrigatórios:</phrase>
+<phrase section="Global" data="PROCCESS_ERR1">Por favor, preencha todos os campos obrigatórios</phrase>
+<phrase section="Global" data="PROP">Propriedades</phrase>
+<phrase section="Global" data="PUBLIC">Publicar</phrase>
+<phrase section="Global" data="PUBLISHED">Publicado</phrase>
+<phrase section="Global" data="REFRESH">Atualizar</phrase>
+<phrase section="Global" data="RESET">Redefinir</phrase>
+<phrase section="Global" data="REGISTERED">Registrado</phrase>
+<phrase section="Global" data="REMOVE">Remover</phrase>
+<phrase section="Global" data="RENAME">Renomear</phrase>
+<phrase section="Global" data="REQFIELD1">Campos marcados.</phrase>
+<phrase section="Global" data="REQFIELD2">é obrigatório.</phrase>
+<phrase section="Global" data="RESFRTR">Restaurado da lixeira</phrase>
+<phrase section="Global" data="RESTORE">Restaurar</phrase>
+<phrase section="Global" data="RFCOMPLETE">Restaurar Original</phrase>
+<phrase section="Global" data="SAVE">Salvar</phrase>
+<phrase section="Global" data="SEARCH">Buscar</phrase>
+<phrase section="Global" data="SEARCH2">digite e pressione enter...</phrase>
+<phrase section="Global" data="SELECTMULTI">Selecione Algumas Opções</phrase>
+<phrase section="Global" data="SETTINGS">Configurações</phrase>
+<phrase section="Global" data="SORTING">Ordenação</phrase>
+<phrase section="Global" data="SORTING_O">Opções de Ordenação</phrase>
+<phrase section="Global" data="STATUS">Status</phrase>
+<phrase section="Global" data="STAFF">Equipe</phrase>
+<phrase section="Global" data="SUBMIT">Enviar</phrase>
+<phrase section="Global" data="SUBMITP">Enviar Pagamento</phrase>
+<phrase section="Global" data="SUCCESS">Sucesso</phrase>
+<phrase section="Global" data="SYSERROR">Ocorreu um erro ao processar esta solicitação. Por favor, entre em contato com o administrador.</phrase>
+<phrase section="Global" data="SYSTEM_ERR">Por favor, preencha os seguintes campos:</phrase>
+<phrase section="Global" data="SYSTEM_ERR1">Erro do sistema!! Valor inválido detectado - </phrase>
+<phrase section="Global" data="SYSTEM_ERR2">Você não tem permissão para acessar esta página.</phrase>
+<phrase section="Global" data="SYSTEM_PROCCESS">Nada para processar.</phrase>
+<phrase section="Global" data="TAG">Tag</phrase>
+<phrase section="Global" data="TAGS">Tags</phrase>
+<phrase section="Global" data="TITLE">Título</phrase>
+<phrase section="Global" data="TO">Para</phrase>
+<phrase section="Global" data="TRANSACTION">Transação</phrase>
+<phrase section="Global" data="TRASH">Lixeira</phrase>
+<phrase section="Global" data="TRASH_DEL_OK">Todos os itens na lixeira foram excluídos com sucesso!</phrase>
+<phrase section="Global" data="TYPE">Tipo</phrase>
+<phrase section="Global" data="UPDATE">Atualizar</phrase>
+<phrase section="Global" data="UPDATED">atualizado com sucesso!</phrase>
+<phrase section="Global" data="UPLOAD">Enviar</phrase>
+<phrase section="Global" data="UNASSIGNED">Não atribuído</phrase>
+<phrase section="Global" data="USER">Usuário</phrase>
+<phrase section="Global" data="USER_A">Usuário Ativo</phrase>
+<phrase section="Global" data="USER_B">Usuário Banido</phrase>
+<phrase section="Global" data="USER_I">Usuário Inativo</phrase>
+<phrase section="Global" data="USER_P">Usuário Pendente</phrase>
+<phrase section="Global" data="USERNAME">Usuário</phrase>
+<phrase section="Global" data="USERNAME_R1">Por favor, insira um nome de usuário válido</phrase>
+<phrase section="Global" data="USERNAME_R2">O nome de usuário é muito curto (deve ter pelo menos 4 caracteres).</phrase>
+<phrase section="Global" data="USERNAME_R3">Caracteres inválidos encontrados no nome de usuário.</phrase>
+<phrase section="Global" data="USERNAME_R4">Desculpe, este usuário já existe.</phrase>
+<phrase section="Global" data="USERNAME_R5">Desculpe, o usuário selecionado não existe em nosso banco de dados.</phrase>
+<phrase section="Global" data="VIEW">Visualizar</phrase>
+<phrase section="Global" data="WELCOME">Bem-vindo(a)</phrase>
+<phrase section="Global" data="WORKING">trabalhando....</phrase>
+<phrase section="Global" data="YES">Sim</phrase>
+<phrase section="Global" data="YOUAREHERE">Você está aqui</phrase>				
+
+  <!-- Localization -->	
+  <phrase section="Localization" data="_DAY">Dia</phrase>
+<phrase section="Localization" data="_DAYS">Dias</phrase>
+<phrase section="Localization" data="_HOUR">Hora</phrase>
+<phrase section="Localization" data="_HOURS">Horas</phrase>
+<phrase section="Localization" data="_MINUTE">Minuto</phrase>
+<phrase section="Localization" data="_MINUTES">Minutos</phrase>
+<phrase section="Localization" data="_MONTH">Mês</phrase>
+<phrase section="Localization" data="_MONTHS">Meses</phrase>
+<phrase section="Localization" data="_SECOND">Segundo</phrase>
+<phrase section="Localization" data="_SECONDS">Segundos</phrase>
+<phrase section="Localization" data="_WEEK">Semana</phrase>
+<phrase section="Localization" data="_WEEKS">Semanas</phrase>
+<phrase section="Localization" data="_YEAR">Ano</phrase>
+<phrase section="Localization" data="_YEARS">Anos</phrase>
+<phrase section="Localization" data="AGO">atrás</phrase>
+<phrase section="Localization" data="JUSTNOW">agora mesmo</phrase>
+<phrase section="Localization" data="APR">Abr</phrase>
+<phrase section="Localization" data="APR_L">Abril</phrase>
+<phrase section="Localization" data="AUG">Ago</phrase>
+<phrase section="Localization" data="AUG_L">Agosto</phrase>
+<phrase section="Localization" data="DEC">Dez</phrase>
+<phrase section="Localization" data="DEC_L">Dezembro</phrase>
+<phrase section="Localization" data="FEB">Fev</phrase>
+<phrase section="Localization" data="FEB_L">Fevereiro</phrase>
+<phrase section="Localization" data="FRI">Sex</phrase>
+<phrase section="Localization" data="FRI_L">Sexta-feira</phrase>
+<phrase section="Localization" data="FRI_M">Sex</phrase>
+<phrase section="Localization" data="JAN">Jan</phrase>
+<phrase section="Localization" data="JAN_L">Janeiro</phrase>
+<phrase section="Localization" data="JUL">Jul</phrase>
+<phrase section="Localization" data="JUL_L">Julho</phrase>
+<phrase section="Localization" data="JUN">Jun</phrase>
+<phrase section="Localization" data="JUN_L">Junho</phrase>
+<phrase section="Localization" data="MAR">Mar</phrase>
+<phrase section="Localization" data="MAR_L">Março</phrase>
+<phrase section="Localization" data="MAY">Mai</phrase>
+<phrase section="Localization" data="MAY_L">Maio</phrase>
+<phrase section="Localization" data="MON">Seg</phrase>
+<phrase section="Localization" data="MON_L">Segunda-feira</phrase>
+<phrase section="Localization" data="MON_M">Seg</phrase>
+<phrase section="Localization" data="NOV">Nov</phrase>
+<phrase section="Localization" data="NOV_L">Novembro</phrase>
+<phrase section="Localization" data="OCT">Out</phrase>
+<phrase section="Localization" data="OCT_L">Outubro</phrase>
+<phrase section="Localization" data="SAT">Sáb</phrase>
+<phrase section="Localization" data="SAT_L">Sábado</phrase>
+<phrase section="Localization" data="SAT_M">Sáb</phrase>
+<phrase section="Localization" data="SEP">Set</phrase>
+<phrase section="Localization" data="SEP_L">Setembro</phrase>
+<phrase section="Localization" data="SUN">Dom</phrase>
+<phrase section="Localization" data="SUN_L">Domingo</phrase>
+<phrase section="Localization" data="SUN_M">Dom</phrase>
+<phrase section="Localization" data="THIS_MONTH">Este Mês</phrase>
+<phrase section="Localization" data="THIS_WEEK">Esta Semana</phrase>
+<phrase section="Localization" data="THIS_YEAR">Este Ano</phrase>
+<phrase section="Localization" data="NEXT_MONTH">Próximo Mês</phrase>
+<phrase section="Localization" data="NEXT_WEEK">Próxima Semana</phrase>
+<phrase section="Localization" data="TNEX_YEAR">Próximo Ano</phrase>
+<phrase section="Localization" data="LAST_MONTH">Mês Passado</phrase>
+<phrase section="Localization" data="LAST_WEEK">Semana Passada</phrase>
+<phrase section="Localization" data="LAST_YEAR">Ano Passado</phrase>
+<phrase section="Localization" data="THU">Qui</phrase>
+<phrase section="Localization" data="THU_L">Quinta-feira</phrase>
+<phrase section="Localization" data="THU_M">Qui</phrase>
+<phrase section="Localization" data="TODAY">Hoje</phrase>
+<phrase section="Localization" data="TOMORROW">Amanhã</phrase>
+<phrase section="Localization" data="TUE">Ter</phrase>
+<phrase section="Localization" data="TUE_L">Terça-feira</phrase>
+<phrase section="Localization" data="TUE_M">Ter</phrase>
+<phrase section="Localization" data="WED">Qua</phrase>
+<phrase section="Localization" data="WED_L">Quarta-feira</phrase>	
+<phrase section="Localization" data="WED_M">Qua</phrase>
+<phrase section="Localization" data="YESTERDAY">Ontem</phrase>
+
+  <!-- Accounts -->	
+  <phrase section="Accounts" data="M_ADDED">Conta [NAME] criada com sucesso.</phrase>
+<phrase section="Accounts" data="M_ADDRESS">Endereço</phrase>
+<phrase section="Accounts" data="M_CITY">Cidade</phrase>
+<phrase section="Accounts" data="M_STATE">Província/Estado</phrase>
+<phrase section="Accounts" data="M_ZIP">Código Postal/CEP</phrase>
+<phrase section="Accounts" data="M_COUNTRY">País</phrase>
+<phrase section="Accounts" data="M_DELETE_OK">Usuário [NAME] deletado com sucesso.</phrase>
+<phrase section="Accounts" data="M_EMAIL">Endereço de E-mail</phrase>
+<phrase section="Accounts" data="M_EMAIL1">E-mail</phrase>
+<phrase section="Accounts" data="M_EMAIL_R1">Digite um endereço de e-mail válido.</phrase>
+<phrase section="Accounts" data="M_EMAIL_R2">Este e-mail já está em uso.</phrase>
+<phrase section="Accounts" data="M_EMAIL_R3">O endereço de e-mail não é válido.</phrase>
+<phrase section="Accounts" data="M_EMAIL_R4">Endereço de e-mail inexistente.</phrase>
+<phrase section="Accounts" data="M_EMAIL_R5">Endereço de e-mail inválido.</phrase>
+<phrase section="Accounts" data="M_FNAME">Nome de Usuário</phrase>
+<phrase section="Accounts" data="M_INF01">Editar Descrição da Função</phrase>
+<phrase section="Accounts" data="M_INFO">Clique na etiqueta de Acesso para conceder/negar opções de acesso.</phrase>
+<phrase section="Accounts" data="M_INFO2">Descrição da função atualizada com sucesso.</phrase>
+<phrase section="Accounts" data="M_INFO3">Você atualmente não possui membros...</phrase>
+<phrase section="Accounts" data="M_INFO4">Deseja reenviar a notificação por e-mail para [NAME]?</phrase>
+<phrase section="Accounts" data="M_INFO5">A notificação foi reenviada com sucesso.</phrase>
+<phrase section="Accounts" data="M_INFO6">Você ainda não possui usuários. Por favor, adicione...</phrase>
+<phrase section="Accounts" data="M_INFO7">Você concluiu o registro com sucesso. Verifique seu e-mail para confirmar sua conta.</phrase>
+<phrase section="Accounts" data="M_INFO8">Você concluiu o registro com sucesso. Redirecionando para a página de login.</phrase>
+<phrase section="Accounts" data="M_INFO9">Você validou seu e-mail com sucesso.</phrase>
+<phrase section="Accounts" data="M_INFO9_1">Continuar para fazer login...</phrase>
+<phrase section="Accounts" data="M_INFO10">E-mail e/ou token inválido(s) detectado(s).</phrase>
+<phrase section="Accounts" data="M_INFO11">Houve um problema ao criar sua conta. Por favor, contate o administrador do site.</phrase>
+<phrase section="Accounts" data="M_INFO12">Você ativou [NAME] com sucesso.</phrase>
+<phrase section="Accounts" data="M_LASTIP">IP de Login</phrase>
+<phrase section="Accounts" data="M_LASTLOGIN">Último Login</phrase>
+<phrase section="Accounts" data="M_LNAME">Telefone/WhatsApp</phrase>
+<phrase section="Accounts" data="M_MYACCOUNT">Minha Conta</phrase>
+<phrase section="Accounts" data="M_PASSMATCH">As senhas não coincidem.</phrase>
+<phrase section="Accounts" data="M_PASSUPD_OK">Senha atualizada com sucesso.</phrase>
+<phrase section="Accounts" data="M_PASSUPD_OK2">Senha atualizada com sucesso. Você pode fazer login agora!</phrase>
+<phrase section="Accounts" data="M_PASSUPDATE">Alterar Senha</phrase>
+<phrase section="Accounts" data="M_PASSWORD">Senha</phrase>
+<phrase section="Accounts" data="M_PASSWORD_L">Esqueceu sua Senha?</phrase>
+<phrase section="Accounts" data="M_PASSWORD_R1">Digite uma senha válida.</phrase>
+<phrase section="Accounts" data="M_PASSWORD_R2">A senha deve conter pelo menos uma letra minúscula, uma letra maiúscula e um dígito.</phrase>
+<phrase section="Accounts" data="M_PASSWORD_RES">Redefinir Senha</phrase>
+<phrase section="Accounts" data="M_PASSWORD_RES_D">Senha enviada com sucesso. Por favor, verifique seu e-mail.</phrase>
+<phrase section="Accounts" data="M_PASSWORD_RES_S">Redefinição de Senha</phrase>
+<phrase section="Accounts" data="M_PASSWORD_RES_T">Para redefinir sua senha, digite o endereço de e-mail acima, usado para registrar sua conta.</phrase>
+<phrase section="Accounts" data="M_PASSWORD_T">Deixe em branco a menos que esteja alterando a senha.</phrase>
+<phrase section="Accounts" data="M_PASSWORD_T2">A senha deve ter pelo menos 6 caracteres.</phrase>
+<phrase section="Accounts" data="M_SUB1">Aqui você pode atualizar suas informações de conta pessoal.</phrase>
+<phrase section="Accounts" data="M_SUB2">Alterar Senha</phrase>
+<phrase section="Accounts" data="M_SUB3">Aqui você pode gerenciar os papéis e privilégios dos membros da sua equipe.</phrase>
+<phrase section="Accounts" data="M_SUB4">Aqui você pode ver e gerenciar os privilégios para o papel [ROLE] atualmente selecionado.</phrase>
+<phrase section="Accounts" data="M_SUB5">Aqui você pode ver e gerenciar seus membros.</phrase>
+<phrase section="Accounts" data="M_SUB6">Reenviar E-mail</phrase>
+<phrase section="Accounts" data="M_SUB7">Aqui você pode atualizar as informações da sua conta pessoal de usuário.</phrase>
+<phrase section="Accounts" data="M_SUB8">Alterar Plano</phrase>
+<phrase section="Accounts" data="M_SUB9">Tipo de Usuário</phrase>
+<phrase section="Accounts" data="M_SUB10">Assinante do Boletim Informativo</phrase>
+<phrase section="Accounts" data="M_SUB11">Nota do Usuário</phrase>
+<phrase section="Accounts" data="M_SUB12">Aqui você pode adicionar um novo usuário.</phrase>
+<phrase section="Accounts" data="M_SUB13">Enviar Notificação por E-mail</phrase>
+<phrase section="Accounts" data="M_SUB14">Voltar ao Login</phrase>
+<phrase section="Accounts" data="M_SUB15">Estender Plano</phrase>
+<phrase section="Accounts" data="M_SUB16">Login</phrase>
+<phrase section="Accounts" data="M_SUB17">Registrar</phrase>
+<phrase section="Accounts" data="M_SUB18">Perfil</phrase>
+<phrase section="Accounts" data="M_SUB19">Selecionar</phrase>
+<phrase section="Accounts" data="M_SUB20">Ativar</phrase>
+<phrase section="Accounts" data="M_SUB21">Resumo da Compra</phrase>
+<phrase section="Accounts" data="M_SUB22">Pagar com</phrase>
+<phrase section="Accounts" data="M_SUB23">Adicionar Registro de Transação</phrase>
+<phrase section="Accounts" data="M_SUB24">Por favor, selecione a associação</phrase>
+<phrase section="Accounts" data="M_SUB25">Selecione "Sim" para mudar o Plano</phrase>
+<phrase section="Accounts" data="M_SUB26">Arquivos do Usuário</phrase>
+<phrase section="Accounts" data="M_TITLE">Visão Geral da Conta</phrase>
+<phrase section="Accounts" data="M_TITLE1">Gerenciamento de Funções</phrase>
+<phrase section="Accounts" data="M_TITLE2">Gerenciamento de Privilégios</phrase>
+<phrase section="Accounts" data="M_TITLE3">Visão Geral dos Membros</phrase>
+<phrase section="Accounts" data="M_TITLE4">Editar Usuário</phrase>
+<phrase section="Accounts" data="M_TITLE5">Novo Usuário</phrase>
+<phrase section="Accounts" data="M_TRASH_OK">Usuário [NAME] movido para a lixeira com sucesso.</phrase>
+<phrase section="Accounts" data="M_UPDATE">Atualizar Conta</phrase>
+<phrase section="Accounts" data="M_UPDATED">Conta [NAME] atualizada com sucesso.</phrase>
+<phrase section="Accounts" data="M_RESTORE_OK">Usuário [NAME] restaurado com sucesso.</phrase>
+  
+  <!-- Admin Menus -->	
+<phrase section="Admin Menus" data="ADM_BACKUP">Backup</phrase>
+<phrase section="Admin Menus" data="ADM_CONTENT">Conteúdo</phrase>
+<phrase section="Admin Menus" data="ADM_DASH">Painel</phrase>
+<phrase section="Admin Menus" data="ADM_EMTPL">Modelos de Email</phrase>
+<phrase section="Admin Menus" data="ADM_CNTR">Países</phrase>
+<phrase section="Admin Menus" data="ADM_CFIELDS">Campos Personalizados</phrase>
+<phrase section="Admin Menus" data="ADM_COUPONS">Cupons</phrase>
+<phrase section="Admin Menus" data="ADM_GATE">Opções de Pagamento</phrase>
+<phrase section="Admin Menus" data="ADM_LNGMNG">Idioma</phrase>
+<phrase section="Admin Menus" data="ADM_HELP">Ajuda</phrase>
+<phrase section="Admin Menus" data="ADM_MEMBS">Planos</phrase>
+<phrase section="Admin Menus" data="ADM_MTNC">Manutenção</phrase>
+<phrase section="Admin Menus" data="ADM_NEWS">Notícias</phrase>
+<phrase section="Admin Menus" data="ADM_FILES">Arquivos</phrase>
+<phrase section="Admin Menus" data="ADM_PAGES">Páginas</phrase>
+<phrase section="Admin Menus" data="ADM_PERMS">Permissões</phrase>
+<phrase section="Admin Menus" data="ADM_NEWSL">Boletim Informativo</phrase>
+<phrase section="Admin Menus" data="ADM_PERM">Permissões de Usuário</phrase>
+<phrase section="Admin Menus" data="ADM_SYSINFO">Informações do Sistema</phrase>
+<phrase section="Admin Menus" data="ADM_CONFIG">Configuração</phrase>
+<phrase section="Admin Menus" data="ADM_STNG">Configurações</phrase>
+<phrase section="Admin Menus" data="ADM_SYSTEM">Sistema</phrase>
+<phrase section="Admin Menus" data="ADM_TRASH">Lixeira</phrase>
+<phrase section="Admin Menus" data="ADM_TRANS">Transações</phrase>
+<phrase section="Admin Menus" data="ADM_USERS">Usuários</phrase>
+
+  <!-- Memberships -->	
+<phrase section="Memberships" data="MEM_ADDED_OK">Plano [NAME] adicionado com sucesso.</phrase>
+<phrase section="Memberships" data="MEM_TITLE">Pacotes de Assinaturas</phrase>
+<phrase section="Memberships" data="MEM_NOMEM">Você ainda não possui nenhum plano de assinatura. Por favor, adicione...</phrase>
+<phrase section="Memberships" data="MEM_SUB">Aqui você pode gerenciar seus pacotes de assinatura. Observação: Certifique-se de não excluir ou desativar pacotes atribuídos a usuários ativos.</phrase>
+<phrase section="Memberships" data="MEM_SUB1">Novo Plano</phrase>
+<phrase section="Memberships" data="MEM_SUB2">Atualizar plano</phrase>
+<phrase section="Memberships" data="MEM_TRIAL">Assinatura de Teste</phrase>
+<phrase section="Memberships" data="MEM_PRIVATE">Assinatura Privada</phrase>
+<phrase section="Memberships" data="MEM_REC">Pagamento Recorrente</phrase>
+<phrase section="Memberships" data="MEM_REC1">Recorrente?</phrase>
+<phrase section="Memberships" data="MEM_EXP">Expira em</phrase>
+<phrase section="Memberships" data="MEM_ACT">Ativo desde</phrase>
+<phrase section="Memberships" data="MEM_PRICE">Preço do Plano</phrase>
+<phrase section="Memberships" data="MEM_DAYS">Duração</phrase>
+<phrase section="Memberships" data="MEM_NAME">Nome do Plano</phrase>
+<phrase section="Memberships" data="MEM_VALID">Válido até</phrase>
+<phrase section="Memberships" data="MEM_TRASH_OK">Assinatura [NAME] movida para a lixeira com sucesso.</phrase>
+<phrase section="Memberships" data="MEM_UPDATE_OK">Assinatura [NAME] atualizada com sucesso.</phrase>
+<phrase section="Memberships" data="MEM_DELETE_OK">Assinatura [NAME] excluída com sucesso.</phrase>
+<phrase section="Memberships" data="MEM_RESTORE_OK">Assinatura [NAME] restaurada com sucesso.</phrase>
+
+  <!-- Gateway -->	
+<phrase section="Gateway" data="GW_EDIT">Editar Gateway</phrase>
+<phrase section="Gateway" data="GW_IPNURL">URL do IPN</phrase>
+<phrase section="Gateway" data="GW_LIVE">Ativar Modo Real</phrase>
+<phrase section="Gateway" data="GW_NAME">Nome do Gateway</phrase>
+<phrase section="Gateway" data="GW_SUB">Aqui você pode gerenciar sua lista de gateways de pagamento disponíveis.</phrase>
+<phrase section="Gateway" data="GW_TITLE">Gerenciar Gateways de Pagamento</phrase>
+<phrase section="Gateway" data="GW_TITLE1">Editar Gateway de Pagamento</phrase>
+<phrase section="Gateway" data="GW_UPDATE">Atualizar Gateway</phrase>
+<phrase section="Gateway" data="GW_UPDATED">Gateway [NAME] Atualizado com Sucesso</phrase>
+  	
+  <!-- Pagination -->	
+ <phrase section="Pagination" data="CURPAGE">Página Atual</phrase>
+<phrase section="Pagination" data="TOTAL">Total</phrase>
+<phrase section="Pagination" data="GOTO">Ir Para</phrase>
+<phrase section="Pagination" data="IPP">Itens Por Página</phrase>
+<phrase section="Pagination" data="NEXT">Próximo</phrase>
+<phrase section="Pagination" data="OF">de</phrase>
+<phrase section="Pagination" data="PREV">Anterior</phrase>
+  
+  <!-- Email Templates -->	
+<phrase section="Email Templates" data="ET_BACKUP">Criar Backup</phrase>
+<phrase section="Email Templates" data="ET_DESC">Descrição</phrase>
+<phrase section="Email Templates" data="ET_ERROR">Erro ao carregar arquivo de modelo</phrase>
+<phrase section="Email Templates" data="ET_ERROR2">O modelo selecionado não existe.</phrase>
+<phrase section="Email Templates" data="ET_INFO">Parece que seus modelos de email estão faltando. Por favor, reinstale.</phrase>
+<phrase section="Email Templates" data="ET_NAME">Nome do Modelo</phrase>
+<phrase section="Email Templates" data="ET_SUB">Aqui você pode projetar/atualizar modelos de emails existentes.</phrase>
+<phrase section="Email Templates" data="ET_SUBJECT">Assunto</phrase>
+<phrase section="Email Templates" data="ET_TITLE">Gerenciar Modelos de Email</phrase>
+<phrase section="Email Templates" data="ET_TITLE2">Editando Modelo</phrase>
+<phrase section="Email Templates" data="ET_UPDATE">Atualizar Modelo</phrase>
+<phrase section="Email Templates" data="ET_UPDATED">Modelo [NAME] atualizado com sucesso.</phrase>
+
+  <!-- News Announcements -->	
+<phrase section="News" data="NW_TITLE">Gerenciador de Notícias</phrase>
+<phrase section="News" data="NW_TITLE1">Últimas Notícias</phrase>
+<phrase section="News" data="NW_INFO">Aqui você pode gerenciar seus anúncios de notícias.</phrase>
+<phrase section="News" data="NW_SUB1">Nova Notícia</phrase>
+<phrase section="News" data="NW_SUB2">Criar Anúncio de Notícia</phrase>
+<phrase section="News" data="NW_NONEWS">Você ainda não tem nenhum anúncio de notícias. Por favor, adicione...</phrase>
+<phrase section="News" data="NW_UPDATE">Atualizar Notícia</phrase>
+<phrase section="News" data="NW_ADDED_OK">Notícia [NAME] adicionada com sucesso.</phrase>
+<phrase section="News" data="NW_TRASH_OK">Notícia [NAME] movida para a lixeira com sucesso.</phrase>
+<phrase section="News" data="NW_UPDATE_OK">Notícia [NAME] atualizada com sucesso.</phrase>
+<phrase section="News" data="NW_DELETE_OK">Notícia [NAME] excluída com sucesso.</phrase>
+<phrase section="News" data="NW_RESTORE_OK">Notícia [NAME] restaurada com sucesso.</phrase>
+
+  <!-- Pages -->	
+<phrase section="Pages" data="PG_TITLE">Gerenciador de Páginas</phrase>
+<phrase section="Pages" data="PG_SLUG">Slug da Página</phrase>
+<phrase section="Pages" data="PG_INFO">Aqui você pode gerenciar suas páginas.</phrase>
+<phrase section="Pages" data="PG_SUB1">Nova Página</phrase>
+<phrase section="Pages" data="PG_SUB2">Criar Página</phrase>
+<phrase section="Pages" data="PG_NOPAGE">Você ainda não tem nenhuma página. Por favor, adicione...</phrase>
+<phrase section="Pages" data="PG_UPDATE">Atualizar Página</phrase>
+<phrase section="Pages" data="PG_ADDED_OK">Página [NAME] adicionada com sucesso.</phrase>
+<phrase section="Pages" data="PG_TRASH_OK">Página [NAME] movida para a lixeira com sucesso.</phrase>
+<phrase section="Pages" data="PG_UPDATE_OK">Página [NAME] atualizada com sucesso.</phrase>
+<phrase section="Pages" data="PG_DELETE_OK">Página [NAME] excluída com sucesso.</phrase>
+<phrase section="Pages" data="PG_RESTORE_OK">Página [NAME] restaurada com sucesso.</phrase>
+<phrase section="Pages" data="PG_MERROR_1">O conteúdo ao qual você está tentando acessar requer credenciais de membro.</phrase>
+<phrase section="Pages" data="PG_MERROR_2">O conteúdo ao qual você está tentando acessar requer uma destas assinaturas</phrase>
+  
+  <!-- Transactions -->	
+  <phrase section="Transactions" data="TRX_PAY">Transações</phrase>
+<phrase section="Transactions" data="TRX_AVERAGE">Venda Média</phrase>
+<phrase section="Transactions" data="TRX_TAX">Imposto/IVA</phrase>
+<phrase section="Transactions" data="TRX_COUPON">Cupom</phrase>
+<phrase section="Transactions" data="TRX_TOTAMT">Valor Total</phrase>
+<phrase section="Transactions" data="TRX_AMOUNT">Valor</phrase>
+<phrase section="Transactions" data="TRX_SALES">Vendas</phrase>
+<phrase section="Transactions" data="TRX_POPMEM">Vendas por Plano</phrase>
+<phrase section="Transactions" data="TRX_GRTOTAL">Total Geral</phrase>
+<phrase section="Transactions" data="TRX_PP">Processador</phrase>
+
+  <!-- Countries -->
+<phrase section="Countries" data="CNT_TITLE">Gerenciamento de Países</phrase>
+<phrase section="Countries" data="CNT_INFO">Aqui você pode visualizar e gerenciar a lista de países. Clique nos valores de IVA/imposto para editar no local.</phrase>
+<phrase section="Countries" data="CNT_ABBR">Abreviação</phrase>
+<phrase section="Countries" data="CNT_SELECT">Selecionar País</phrase>
+<phrase section="Countries" data="CNT_DELOK">País [NAME] excluído com sucesso.</phrase>
+<phrase section="Countries" data="CNT_EDIT">Editar País</phrase>
+<phrase section="Countries" data="CNT_NOCOUNTRY">Você ainda não possui nenhum país...</phrase>
+<phrase section="Countries" data="CNT_UPDATE">Atualizar País</phrase>
+<phrase section="Countries" data="CNT_UPDATED">País [NAME] atualizado com sucesso.</phrase>
+
+  <!-- Admin Discounts -->
+<phrase section="Discounts" data="DC_ADDED_OK">Cupom [NAME] adicionado com sucesso.</phrase>
+<phrase section="Discounts" data="DC_DELETE_OK">Cupom [NAME] deletado com sucesso.</phrase>
+<phrase section="Discounts" data="DC_TITLE">Descontos/Cupons</phrase>
+<phrase section="Discounts" data="DC_SUB">Aqui você pode gerenciar seus descontos/cupons.</phrase>
+<phrase section="Discounts" data="DC_CODE">Código do Cupom</phrase>
+<phrase section="Discounts" data="DC_CODE_I">Digite o Código do Cupom...</phrase>
+<phrase section="Discounts" data="DC_SUB1">Novo Cupom</phrase>
+<phrase section="Discounts" data="DC_SUB2">Atualizar Cupom</phrase>
+<phrase section="Discounts" data="DC_SUB3">Aplicar em assinaturas</phrase>
+<phrase section="Discounts" data="DC_SUB4">Desconto</phrase>
+<phrase section="Discounts" data="DC_DISC">Quantia do Desconto</phrase>
+<phrase section="Discounts" data="DC_TYPE">Tipo do Desconto</phrase>
+<phrase section="Discounts" data="DC_NONDISC">Você ainda não possui nenhum desconto/cupom. Por favor, adicione...</phrase>
+<phrase section="Discounts" data="DC_TYPE_A">Valor Fixo</phrase>
+<phrase section="Discounts" data="DC_TYPE_P">Porcentagem</phrase>
+<phrase section="Discounts" data="DC_TRASH_OK">Cupom [NAME] movido para a lixeira com sucesso.</phrase>
+<phrase section="Discounts" data="DC_UPDATE_OK">Cupom [NAME] atualizado com sucesso.</phrase>
+<phrase section="Discounts" data="DC_RESTORE_OK">Cupom [NAME] restaurado com sucesso.</phrase>
+  
+  <!-- Language Manager -->	
+<phrase section="Language Manager" data="LG_RESET">Redefinir Filtro de Grupo</phrase>
+<phrase section="Language Manager" data="LG_SUB2">Aqui você pode atualizar suas frases no idioma. Nota: Não substitua variáveis entre [ ]. Clique no nome do valor para editar.</phrase>
+<phrase section="Language Manager" data="LG_SUB4">Seção da Frase</phrase>
+<phrase section="Language Manager" data="LG_TITLE1">Frases do Idioma</phrase>
+  
+  <!-- Database -->	
+<phrase section="Database" data="DBM_ADD">Criar Backup</phrase>			
+<phrase section="Database" data="DBM_BKP_ERR">Houve um erro ao criar o backup.</phrase>			
+<phrase section="Database" data="DBM_BKP_OK">Backup criado com sucesso!</phrase>			
+<phrase section="Database" data="DBM_DEL">Excluir Backup do Banco de Dados</phrase>			
+<phrase section="Database" data="DBM_DEL_OK">Backup [NAME] excluído com sucesso!</phrase>			
+<phrase section="Database" data="DBM_INFO">Certifique-se de fazer backup do seu banco de dados com frequência. Clique em Criar backup para fazer um backup manual do seu banco de dados. Os backups são armazenados na pasta [/uploads/backups/] e podem ser baixados na lista abaixo. Seu backup mais recente está destacado. Certifique-se de baixar seu backup mais recente e excluir o restante.</phrase>		
+<phrase section="Database" data="DBM_RES">Restaurar Banco de Dados</phrase>			
+<phrase section="Database" data="DBM_RES_OK">Banco de dados [NAME] restaurado com sucesso!</phrase>			
+<phrase section="Database" data="DBM_RES_T">Tem certeza de que deseja restaurar o banco de dados?</phrase>			
+<phrase section="Database" data="DBM_SUB">Visualizando Backups</phrase>			
+<phrase section="Database" data="DBM_TITLE">Manutenção do Banco de Dados</phrase>	
+
+  <!-- Admin Maintenence -->
+<phrase section="Maintenence" data="MT_TITLE">Gerenciador de Manutenção</phrase>
+<phrase section="Maintenence" data="MT_INFO">Aqui você pode realizar a manutenção do site, como excluir usuários inativos e banidos. Tenha cuidado com o que está fazendo, essas ações não podem ser desfeitas.</phrase>
+<phrase section="Maintenence" data="MT_IUSERS">Excluir Usuários Inativos</phrase>
+<phrase section="Maintenence" data="MT_IUSERS_T">Isso excluirá todos os usuários (exceto administradores) que não fizeram login no site dentro de um determinado período de tempo. Não excluirá usuários pendentes no processo de verificação. Especifique o número de dias inativos acima.</phrase>
+<phrase section="Maintenence" data="MT_BUSERS">Excluir Usuários Banidos</phrase>
+<phrase section="Maintenence" data="MT_BUSERS_T">Isso excluirá todos os [TOTAL] usuário(s) banido(s).</phrase>
+<phrase section="Maintenence" data="MT_CART">Limpar Dados do Carrinho</phrase>
+<phrase section="Maintenence" data="MT_CART_T">Isso limpará os dados do carrinho, usados para armazenar detalhes temporários do usuário.</phrase>
+<phrase section="Maintenence" data="MT_IUBTN">Excluir Inativos</phrase>
+<phrase section="Maintenence" data="MT_BUBTN">Excluir Banidos</phrase>
+<phrase section="Maintenence" data="MT_CRBTN">Esvaziar Carrinho</phrase>
+<phrase section="Maintenence" data="MT_DELINCT_OK">Total de [NAME] usuário(s) inativo(s) excluído(s) com sucesso.</phrase>
+<phrase section="Maintenence" data="MT_DELBND_OK">Todos os [NAME] usuários banidos foram excluídos com sucesso.</phrase>
+<phrase section="Maintenence" data="MT_DELCRT_OK">Total de [NAME] registros excluídos com sucesso.</phrase>
+  
+  <!-- Admin Custom Fields -->
+<phrase section="Custom Fields" data="CSF_TITLE">Campos Personalizados</phrase>
+<phrase section="Custom Fields" data="CF_ADD">Novo Campo</phrase>
+<phrase section="Custom Fields" data="CF_ADDED_OK">Campo Personalizado [NAME] Adicionado com Sucesso.</phrase>
+<phrase section="Custom Fields" data="CF_DEL_OK">Campo Personalizado [NAME] excluído com sucesso.</phrase>
+<phrase section="Custom Fields" data="CF_EDIT">Editar Campo</phrase>
+<phrase section="Custom Fields" data="CF_FIELD">Campo</phrase>
+<phrase section="Custom Fields" data="CF_INFO">Para reordenar os campos, clique e arraste a alça de reordenação do item, posicione-o onde desejar. A posição será atualizada automaticamente.</phrase>
+<phrase section="Custom Fields" data="CF_NOFIELDS">Você ainda não possui nenhum campo personalizado. Por favor, adicione...</phrase>
+<phrase section="Custom Fields" data="CF_REQUIRED">Campo Obrigatório</phrase>
+<phrase section="Custom Fields" data="CF_SUB1">Editar Campo Personalizado</phrase>
+<phrase section="Custom Fields" data="CF_SUB2">Adicionar Campo Personalizado</phrase>
+<phrase section="Custom Fields" data="CF_TIP">Dica de Ferramenta</phrase>
+<phrase section="Custom Fields" data="CF_TITLE">Gerenciar Campos Personalizados</phrase>
+<phrase section="Custom Fields" data="CF_UPDATE">Atualizar Campo</phrase>
+<phrase section="Custom Fields" data="CF_UPDATE_OK">Campo Personalizado [NAME] Atualizado com Sucesso.</phrase>
+
+  <!-- Admin Newsletter -->
+<phrase section="Newsletter" data="NL_FROM">De</phrase>
+<phrase section="Newsletter" data="NL_RCPT">Destinatários</phrase>
+<phrase section="Newsletter" data="NL_INFO1">Aqui você pode enviar boletins informativos para todos os usuários ou assinantes do boletim informativo.</phrase>
+<phrase section="Newsletter" data="NL_SUBJECT">Assunto do Email</phrase>
+<phrase section="Newsletter" data="NL_ATTACH">Anexo</phrase>
+<phrase section="Newsletter" data="NL_TTITLE">Boletim Informativo do Sistema</phrase>
+<phrase section="Newsletter" data="NL_BODY">Conteúdo do Email</phrase>
+<phrase section="Newsletter" data="NL_SEND">Enviar Email</phrase>
+<phrase section="Newsletter" data="NL_UALL">Todos os Usuários</phrase>
+<phrase section="Newsletter" data="NL_UAREG">Membros Registrados</phrase>
+<phrase section="Newsletter" data="NL_UPAID">Usuários com Plano Pago</phrase>
+<phrase section="Newsletter" data="NL_UNLS">Assinantes do Boletim Informativo</phrase>
+<phrase section="Newsletter" data="NL_SENT">Todos os Email(s) foram enviados com sucesso!</phrase>
+<phrase section="Newsletter" data="NL_ALERT">Alguns dos emails não puderam ser entregues!</phrase>
+  
+  <!-- System Info -->	
+  <phrase section="System Info" data="SYS_CMS_INF">Informações do CMS</phrase>
+<phrase section="System Info" data="SYS_CMS_VER">Versão do CMS</phrase>
+<phrase section="System Info" data="SYS_DBOPTIMIZED">Otimizado</phrase>
+<phrase section="System Info" data="SYS_DBOPTIMIZING">Otimizando</phrase>
+<phrase section="System Info" data="SYS_DBREPAIRED">Reparado</phrase>
+<phrase section="System Info" data="SYS_DBREPAIRING">Reparando</phrase>
+<phrase section="System Info" data="SYS_DBSTATUS">Status</phrase>
+<phrase section="System Info" data="SYS_DBTABLE">Tabela</phrase>
+<phrase section="System Info" data="SYS_DBTABLE_INF">Tabelas do Banco de Dados</phrase>
+<phrase section="System Info" data="SYS_DBV">Versão do Banco de Dados do Servidor</phrase>
+<phrase section="System Info" data="SYS_DEF_LANG">Idioma Padrão</phrase>
+<phrase section="System Info" data="SYS_GD_VER">Versão do GD</phrase>
+<phrase section="System Info" data="SYS_INFO">As informações abaixo são coletadas de várias localizações e resumidas aqui para que você possa encontrar algumas das informações necessárias ao tentar diagnosticar um problema ou solicitar ajuda com sua instalação do MMP PRO v.[VER] de maneira conveniente.</phrase>
+<phrase section="System Info" data="SYS_LOG_ERR">Erros de Log</phrase>
+<phrase section="System Info" data="SYS_MEM_LIM">Limite de Memória</phrase>
+<phrase section="System Info" data="SYS_MEMALO">Memória Máxima Alocada</phrase>
+<phrase section="System Info" data="SYS_MQR">Magic quotes em runtime</phrase>
+<phrase section="System Info" data="SYS_PHP_INF">Informações do PHP</phrase>
+<phrase section="System Info" data="SYS_PHP_INFO">Informações do PHP</phrase>
+<phrase section="System Info" data="SYS_PHP_VER">Versão Atual do PHP</phrase>
+<phrase section="System Info" data="SYS_PMF">Post Max. Tamanho do arquivo</phrase>
+<phrase section="System Info" data="SYS_RG">Registro Global</phrase>
+<phrase section="System Info" data="SYS_ROOT_PATH">Caminho Raiz</phrase>
+<phrase section="System Info" data="SYS_ROOT_URL">URL Raiz</phrase>
+<phrase section="System Info" data="SYS_SER_API">API do Servidor</phrase>
+<phrase section="System Info" data="SYS_SER_DB">Banco de Dados do Servidor</phrase>
+<phrase section="System Info" data="SYS_SER_INF">Informações do Servidor</phrase>
+<phrase section="System Info" data="SYS_SER_MR">Apache Mod Rewrite</phrase>
+<phrase section="System Info" data="SYS_SER_OS">Sistema Operacional do Servidor</phrase>
+<phrase section="System Info" data="SYS_SERVER_INFO">Informações do Servidor</phrase>
+<phrase section="System Info" data="SYS_SM">Modo de Segurança</phrase>
+<phrase section="System Info" data="SYS_SSP">Caminho de Salvamento da Sessão</phrase>
+<phrase section="System Info" data="SYS_STS">Espaço Total do Servidor</phrase>
+<phrase section="System Info" data="SYS_SUB">Visualizando Informações do Sistema</phrase>
+<phrase section="System Info" data="SYS_TITLE">Informações do Sistema</phrase>
+<phrase section="System Info" data="SYS_UMF">Max. Tamanho do Arquivo para Upload</phrase>
+<phrase section="System Info" data="SYS_UPL_PATH">Caminho dos Uploads</phrase>
+<phrase section="System Info" data="SYS_ADMVIEW">Visualização do Administrador</phrase>
+<phrase section="System Info" data="SYS_UPL_URL">URL dos Uploads</phrase>
+
+  <!-- Admin Help Section -->
+<phrase section="Help" data="HP_TITLE">Seção de Ajuda</phrase>
+<phrase section="Help" data="HP_INFO">Aqui você pode encontrar instruções sobre como proteger suas páginas com base no nível do usuário, estado de login, etc.</phrase>
+<phrase section="Help" data="HP_SUB1">Login</phrase>
+<phrase section="Help" data="HP_SUB2">Redirecionamento</phrase>
+<phrase section="Help" data="HP_SUB3">Formulário</phrase>
+<phrase section="Help" data="HP_SUB4">Plano</phrase>
+<phrase section="Help" data="HP_SUB5">Cron</phrase>
+<phrase section="Help" data="HP_SUB6">Construtor de Página</phrase>
+<phrase section="Help" data="HP_SUB7">Incluir Cabeçalho/Rodapé</phrase>
+<phrase section="Help" data="HP_PNAME">Nome da Página</phrase>
+<phrase section="Help" data="HP_PNAME_T">Este é o nome real do arquivo da página. Você pode nomeá-lo como quiser, como membros_platinum</phrase>
+<phrase section="Help" data="HP_INFO">Sua nova página será criada dentro do diretório uploads/. O sistema assume que você irá colocar esta página dentro do diretório raiz da sua instalação inicial e, portanto, todos os caminhos e os arquivos necessários serão incluídos dentro da estrutura da página. Caso contrário, você precisará ajustar manualmente os caminhos dentro desta página se estiver colocando-a fora do diretório do MMP.</phrase>
+<phrase section="Help" data="HP_PBUILD">Construir Página</phrase>
+<phrase section="Help" data="HP_PBUILD_OK">Página [NAME] criada com sucesso</phrase>
+<phrase section="Help" data="HP_PBUILD_ER">Houve um erro ao criar [NAME]. Verifique se o seu diretório de uploads está gravável!</phrase>
+
+  <!-- File Manager -->	
+<phrase section="File Manager" data="FM_INFO">O tamanho máximo do upload é [LIMIT]. Se precisar fazer upload de arquivos maiores que o limite, peça à sua empresa de hospedagem para aumentá-lo.</phrase>
+<phrase section="File Manager" data="FM_LASTM">Última Modificação</phrase>
+<phrase section="File Manager" data="FM_ALIAS">Alias</phrase>
+<phrase section="File Manager" data="FM_UNZIP">Descompactar</phrase>
+<phrase section="File Manager" data="FM_FSIZE">Tamanho</phrase>
+<phrase section="File Manager" data="FM_SPACE">Espaço</phrase>
+<phrase section="File Manager" data="FM_DISPLAY">Exibir</phrase>
+<phrase section="File Manager" data="FM_SORT">Ordenar</phrase>
+<phrase section="File Manager" data="FM_DIR">Diretório</phrase>
+<phrase section="File Manager" data="FM_DIRS">Diretórios</phrase>
+<phrase section="File Manager" data="FM_FILE">Arquivo</phrase>
+<phrase section="File Manager" data="FM_FILES">Arquivos</phrase>
+<phrase section="File Manager" data="FM_NEWFLD">Nova Pasta</phrase>
+<phrase section="File Manager" data="FM_NEWFLD_S1">Criar nova pasta</phrase>
+<phrase section="File Manager" data="FM_NEWFLD_S2">Nome da pasta</phrase>
+<phrase section="File Manager" data="FM_ALL_F">Tudo</phrase>
+<phrase section="File Manager" data="FM_AMG_F">Imagens</phrase>
+<phrase section="File Manager" data="FM_VID_F">Vídeo</phrase>
+<phrase section="File Manager" data="FM_AUD_F">Áudio</phrase>
+<phrase section="File Manager" data="FM_ARC_F">Arquivo</phrase>
+<phrase section="File Manager" data="FM_DOC_F">Documentos</phrase>
+<phrase section="File Manager" data="FM_NOFILES">Você não possui nenhum arquivo ainda. Por favor, faça o upload.</phrase>
+<phrase section="File Manager" data="FM_DEL_OK">Arquivo [NAME] excluído com sucesso.</phrase>
+<phrase section="File Manager" data="FM_REN_OK">Arquivo [NAME] renomeado com sucesso.</phrase>
+<phrase section="File Manager" data="FM_RENAME">Renomear Arquivo</phrase>
+<phrase section="File Manager" data="FM_MACCESS">Acesso de Membro</phrase>
+  
+  <!-- File Upload -->	
+  <phrase section="File Upload" data="FU_ERROR7">Imagem inválida detectada.</phrase>
+<phrase section="File Upload" data="FU_ERROR8">Extensão de arquivo inválida. As extensões permitidas são:</phrase>
+<phrase section="File Upload" data="FU_ERROR9">Desculpe, ocorreu um erro em nosso servidor. Por favor, tente novamente mais tarde.</phrase>
+<phrase section="File Upload" data="FU_ERROR10">O arquivo é muito grande. O tamanho máximo permitido é</phrase>
+<phrase section="File Upload" data="FU_ERROR11">Ocorreu um erro inesperado, por favor, tente novamente mais tarde</phrase>
+<phrase section="File Upload" data="FU_ERROR12">Desculpe, ocorreu um erro em nosso servidor. Por favor, tente novamente mais tarde.</phrase>
+<phrase section="File Upload" data="FU_ERROR13">O arquivo não pôde ser enviado</phrase>
+<phrase section="File Upload" data="FU_ERROR14">Você precisa selecionar pelo menos um arquivo.</phrase>
+<phrase section="File Upload" data="FU_ERROR15">Imagem inválida detectada.</phrase>
+
+  <!-- Admin Configuration -->
+<phrase section="Configuration" data="CG_INFO">Aqui você pode atualizar a configuração do seu sistema. Por favor, não faça nenhuma alteração a menos que saiba o que está fazendo.</phrase>
+<phrase section="Configuration" data="CG_UPDATE">Atualizar Configuração</phrase>
+<phrase section="Configuration" data="CG_UPDATED">Configuração do sistema atualizada com sucesso!</phrase>
+<phrase section="Configuration" data="CG_SITENAME">Nome do Site</phrase>
+<phrase section="Configuration" data="CG_WEBEMAIL">Email do Site</phrase>
+<phrase section="Configuration" data="CG_WEBEMAIL1">Email de confirmação do Site</phrase>
+<phrase section="Configuration" data="CG_DIR">Diretório do Site</phrase>
+<phrase section="Configuration" data="CG_LOGO">Logotipo da Empresa</phrase>
+<phrase section="Configuration" data="CG_LOGODEL">Excluir Logotipo</phrase>
+<phrase section="Configuration" data="CG_LOGO1">Logotipo da Fatura</phrase>
+<phrase section="Configuration" data="CG_CALDATE">Data do Calendário</phrase>
+<phrase section="Configuration" data="CG_SHORTDATE">Data Curta</phrase>
+<phrase section="Configuration" data="CG_LONGDATE">Data Longa</phrase>
+<phrase section="Configuration" data="CG_TIMEFORMAT">Formato da Hora</phrase>
+<phrase section="Configuration" data="CG_DTZ">Fuso Horário Padrão</phrase>
+<phrase section="Configuration" data="CG_LOCALES">Localidade Padrão</phrase>
+<phrase section="Configuration" data="CG_LANG">Idioma Padrão</phrase>
+<phrase section="Configuration" data="CG_PERPAGE">Itens por Página</phrase>
+<phrase section="Configuration" data="CG_WEEKSTART">Início da Semana</phrase>
+<phrase section="Configuration" data="CG_REGALOWED">Permitir Registro</phrase>
+<phrase section="Configuration" data="CG_NOTIFY_ADMIN">Notificação de Registro</phrase>
+<phrase section="Configuration" data="CG_AUTOVERIFY">Registro Automático</phrase>
+<phrase section="Configuration" data="CG_REGVERIFY">Verificação de Registro</phrase>
+<phrase section="Configuration" data="CG_ETAX">Habilitar VAT/Taxa</phrase>
+<phrase section="Configuration" data="CG_CURRENCY">Moeda Padrão</phrase>
+<phrase section="Configuration" data="CG_OFFLINE">Informações de Pagamento Offline</phrase>
+<phrase section="Configuration" data="CG_INVDATA">Dados da Fatura</phrase>
+<phrase section="Configuration" data="CG_INVNOTE">Notas da Fatura</phrase>
+<phrase section="Configuration" data="CG_TWID">ID do Twitter</phrase>
+<phrase section="Configuration" data="CG_FBID">ID do Facebook</phrase>
+<phrase section="Configuration" data="CG_FILEDIR">Diretório de Arquivos</phrase>
+<phrase section="Configuration" data="CG_MAILER">Mailer Padrão</phrase>
+<phrase section="Configuration" data="CG_MEMBERSHIP">Acesso de Membro Padrão</phrase>
+<phrase section="Configuration" data="CG_MEMBERSHIP_T">Atribuir acesso de membro padrão após o registro.</phrase>
+<phrase section="Configuration" data="CG_SMTP_HOST">Nome do Host SMTP</phrase>
+<phrase section="Configuration" data="CG_SMTP_USER">Nome de Usuário SMTP</phrase>
+<phrase section="Configuration" data="CG_SMTP_PASS">Senha SMTP</phrase>
+<phrase section="Configuration" data="CG_SMTP_PORT">Porta SMTP</phrase>
+<phrase section="Configuration" data="CG_SMTP_SSL">Requer SSL</phrase>
+<phrase section="Configuration" data="CG_SMAILPATH">Caminho do Sendmail</phrase>
+
+  <!-- Dashboard -->
+<phrase section="Dashboard" data="AD_TITLE">Bem-vindo(a) ao Painel Admin</phrase>
+<phrase section="Dashboard" data="AD_INFO">Aqui você pode visualizar suas estatísticas de usuário mais recentes, como últimas transações, número de usuários registrados, etc.</phrase>
+<phrase section="Dashboard" data="AD_REVENUE">Receita do Site</phrase>
+<phrase section="Dashboard" data="AD_TODAY">Hoje</phrase>
+<phrase section="Dashboard" data="AD_MY">Mês/Ano</phrase>
+<phrase section="Dashboard" data="AD_TYEAR">Total arrecadado até agora</phrase>
+<phrase section="Dashboard" data="AD_TINCOME">Renda Total</phrase>
+<phrase section="Dashboard" data="AD_RUSER">Usuários Registrados</phrase>
+<phrase section="Dashboard" data="AD_AUSER">Usuários Ativos</phrase>
+<phrase section="Dashboard" data="AD_PUSER">Usuários Pendentes</phrase>
+<phrase section="Dashboard" data="AD_AMEM">Associações Ativas</phrase>
+  
+  <!-- Trash -->	
+<phrase section="Trash" data="TRS_INFO">Itens mais antigos que 30 dias são automaticamente excluídos para sempre.</phrase>
+<phrase section="Trash" data="TRS_TITLE">Gerenciador de Lixeira</phrase>
+<phrase section="Trash" data="TRS_NOTRS">A Lixeira está vazia.</phrase>
+<phrase section="Trash" data="TRS_DELGOOD">Excluir Permanentemente</phrase>
+<phrase section="Trash" data="TRS_INFO">Itens mais antigos que 30 dias são automaticamente excluídos para sempre.</phrase>
+<phrase section="Trash" data="TRS_TEMPTY">Esvaziar Lixeira</phrase>
+<phrase section="Trash" data="TRS_TRS_OK">Todos os registros na lixeira foram removidos.</phrase>
+
+  <!-- Contact -->	
+<phrase section="Contact" data="CNT_INFO">Sinta-se à vontade para nos enviar um e-mail com suas consultas, perguntas ou qualquer feedback. Teremos muito prazer em responder sua pergunta. Use o formulário de contato abaixo para nos enviar um e-mail rápido.</phrase>
+<phrase section="Contact" data="CNT_SUBMIT">Enviar Consulta</phrase>
+<phrase section="Contact" data="CNT_NAME">Seu Nome</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_1">--- O que está em sua mente? ---</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_2">Elogio</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_3">Crítica</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_4">Sugestão</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_5">Anunciar</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_6">Suporte</phrase>
+<phrase section="Contact" data="CNT_SUBJECT_7">Outro</phrase>
+<phrase section="Contact" data="CNT_OK">Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.</phrase>
+
+<phrase section="Payments" data="STR_POK">Obrigado! Pagamento concluído com sucesso. Redirecionando em 4 segundos</phrase>
+<phrase section="Payments" data="STR_POK1">Validação de pagamento, por favor, aguarde...</phrase>
+<phrase section="Payments" data="STR_SPCOK">Confirmação de pagamento.</phrase>
+<phrase section="Payments" data="STR_SPCER">Pagamento falhou</phrase>
+<phrase section="Payments" data="STR_CCN">Número do Cartão</phrase>
+<phrase section="Payments" data="STR_CCV">CVC</phrase>
+<phrase section="Payments" data="STR_CEXM">Mês de Expiração</phrase>
+<phrase section="Payments" data="STR_CEXY">Ano de Expiração</phrase>
+<phrase section="Payments" data="STR_ERR">Membro inválido detectado.</phrase>
+<phrase section="Payments" data="STR_ERR1">Registro de transação inválido detectado.</phrase>
+  
+    <!-- Meta -->	
+  <phrase section="Meta" data="META_T1">Painel</phrase>
+<phrase section="Meta" data="META_T2">Gerenciamento de Usuários</phrase>
+<phrase section="Meta" data="META_T3">Editar Usuário</phrase>
+<phrase section="Meta" data="META_T4">Criar Usuário</phrase>
+<phrase section="Meta" data="META_T5">Histórico do Usuário</phrase>
+<phrase section="Meta" data="META_T6">Gerenciamento de Assinaturas</phrase>
+<phrase section="Meta" data="META_T7">Editar Assinatura</phrase>
+<phrase section="Meta" data="META_T8">Criar Assinatura</phrase>
+<phrase section="Meta" data="META_T9">Histórico de Assinatura</phrase>
+<phrase section="Meta" data="META_T10">Modelos de Email</phrase>
+<phrase section="Meta" data="META_T11">Editar Modelo de Email</phrase>
+<phrase section="Meta" data="META_T12">Gerenciamento de Cupons</phrase>
+<phrase section="Meta" data="META_T13">Editar Cupom</phrase>
+<phrase section="Meta" data="META_T14">Criar Cupom</phrase>
+<phrase section="Meta" data="META_T15">Campos Personalizados</phrase>
+<phrase section="Meta" data="META_T16">Editar Campo</phrase>
+<phrase section="Meta" data="META_T17">Criar Campo</phrase>
+<phrase section="Meta" data="META_T18">Gerenciamento de Notícias</phrase>
+<phrase section="Meta" data="META_T19">Editar Anúncio de Notícia</phrase>
+<phrase section="Meta" data="META_T20">Criar Notícia</phrase>
+<phrase section="Meta" data="META_T21">Gerenciador de Idiomas</phrase>
+<phrase section="Meta" data="META_T22">Opções de Pagamento</phrase>
+<phrase section="Meta" data="META_T23">Gerenciador de Manutenção</phrase>
+<phrase section="Meta" data="META_T24">Gerenciador de Boletim Informativo</phrase>
+<phrase section="Meta" data="META_T25">Configuração do Sistema</phrase>
+<phrase section="Meta" data="META_T26">Lixeira</phrase>
+<phrase section="Meta" data="META_T27">Bem-vindo(a) ao Painel</phrase>
+<phrase section="Meta" data="META_T28">Bem-vindo(a) - [COMPANY]</phrase>
+<phrase section="Meta" data="META_T29">Planos de Assinatura</phrase>
+<phrase section="Meta" data="META_T30">Contate-nos</phrase>
+<phrase section="Meta" data="META_T31">Histórico de Assinatura</phrase>
+<phrase section="Meta" data="META_T32">Configurações do Perfil</phrase>
+<phrase section="Meta" data="META_T33">Seção de Ajuda</phrase>
+<phrase section="Meta" data="META_T34">Downloads de Assinaturas</phrase>
+<phrase section="Meta" data="META_T35">Gerenciador de Arquivos</phrase>
+<phrase section="Meta" data="META_T36">Política de Privacidade</phrase>
+<phrase section="Meta" data="META_T37">Gerenciamento de Páginas</phrase>
+<phrase section="Meta" data="META_T38">Editar Página</phrase>
+<phrase section="Meta" data="META_T39">Nova Página</phrase>
+<phrase section="Meta" data="META_ERROR">Página não encontrada!!!</phrase>
+<phrase section="Meta" data="META_ERROR1">OOPS!!! Página Não Encontrada</phrase>
+<phrase section="Meta" data="META_ERROR2">Ops! Parece que você seguiu um link ruim.</phrase>
+</language>
