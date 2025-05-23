@@ -1,199 +1,238 @@
 <?php
-  /**
-   * Index
-   *
-   * @package Wojo Framework
-   * @author wojoscripts.com
-   * @copyright 2016
-   * @version $Id: index.php, v1.00 2016-06-05 10:12:05 gewa Exp $
-   */
-  define("_WOJO", true);
+require_once 'config.php';
 
-  include ('init.php');
-  $router = new Router();
-  $tpl = App::View(BASEPATH . 'view/');
-  $core = App::Core();
-  
-  //admin routes
-  $router->mount('/admin', function() use ($router, $tpl) {
-      //admin login
-	  $router->match('GET|POST', '/login', function () use ($tpl)
-	  {
-		  if (App::Auth()->is_Admin()) {
-			  Url::redirect(SITEURL . '/admin/'); 
-			  exit; 
-		  }
-		  
-		  $tpl->template = 'admin/login.tpl.php'; 
-		  $tpl->title = Lang::$word->LOGIN; 
-	  });
-	  
-	  //admin index
-	  $router->get('/', 'Admin@Index');
-	  
-	  //admin users
-	  $router->mount('/users', function() use ($router, $tpl) {
-		  $router->match('GET|POST', '/', 'Users@Index');
-		  $router->match('GET|POST', '/grid', 'Users@Index');
-		  $router->get('/history/(\d+)', 'Users@History');
-		  $router->get('/edit/(\d+)', 'Users@Edit');
-		  $router->get('/new', 'Users@Save');
-	  });
-	  
-	  //admin memberships
-	  $router->mount('/memberships', function() use ($router, $tpl) {
-		  $router->match('GET', '/', 'Membership@Index');
-		  $router->get('/history/(\d+)', 'Membership@History');
-		  $router->get('/edit/(\d+)', 'Membership@Edit');
-		  $router->get('/new', 'Membership@Save');
-	  });
+// Se já estiver logado, redireciona para o dashboard
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: dashboard.php');
+    exit;
+}
 
-	  //admin email templates
-	  $router->mount('/templates', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@Templates');
-		  $router->get('/edit/(\d+)', 'Content@TemplateEdit');
-	  });
+// Detectar região do usuário (opcional)
+$regiao_padrao = 'BRL';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Cliente - <?php echo SITE_NAME; ?></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <img src="../assets/img/logo.png" alt="Logo" class="auth-logo">
+                <h1>Área do Cliente</h1>
+                <p>Faça login ou cadastre-se para continuar</p>
+            </div>
 
-	  //admin countries
-	  $router->mount('/countries', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@Countries');
-		  $router->get('/edit/(\d+)', 'Content@CountryEdit');
-	  });
+            <!-- Mensagens de erro/sucesso -->
+            <?php if (isset($_GET['erro'])): ?>
+                <div class="alert alert-error">
+                    <?php 
+                    switch($_GET['erro']) {
+                        case 'login': echo 'Email ou senha incorretos!'; break;
+                        case 'campos': echo 'Preencha todos os campos!'; break;
+                        case 'email_existe': echo 'Este email já está cadastrado!'; break;
+                        case 'usuario_existe': echo 'Este nome de usuário já está em uso!'; break;
+                        case 'cadastro': echo 'Erro ao cadastrar. Tente novamente!'; break;
+                        default: echo 'Ocorreu um erro. Tente novamente!';
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
 
-	  //admin coupons
-	  $router->mount('/coupons', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@Coupons');
-		  $router->get('/edit/(\d+)', 'Content@CouponEdit');
-		  $router->get('/new', 'Content@CouponSave');
-	  });
+            <?php if (isset($_GET['sucesso'])): ?>
+                <div class="alert alert-success">
+                    <?php 
+                    switch($_GET['sucesso']) {
+                        case 'cadastro': echo 'Cadastro realizado com sucesso! Faça login para continuar.'; break;
+                        case 'senha': echo 'Senha redefinida com sucesso!'; break;
+                        case 'logout': echo 'Você saiu com sucesso!'; break;
+                        default: echo 'Operação realizada com sucesso!';
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
 
-	  //admin pages
-	  $router->mount('/pages', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@Pages');
-		  $router->get('/edit/(\d+)', 'Content@PageEdit');
-		  $router->get('/new', 'Content@PageSave');
-	  });
-	  
-	  //admin custom fields
-	  $router->mount('/fields', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@Fields');
-		  $router->get('/edit/(\d+)', 'Content@FieldEdit');
-		  $router->get('/new', 'Content@FieldSave');
-	  });
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="mostrarTab('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="tab-btn" onclick="mostrarTab('cadastro')">
+                    <i class="fas fa-user-plus"></i> Cadastro
+                </button>
+            </div>
 
-	  //admin news
-	  $router->mount('/news', function() use ($router, $tpl) {
-		  $router->get('/', 'Content@News');
-		  $router->get('/edit/(\d+)', 'Content@NewsEdit');
-		  $router->get('/new', 'Content@NewsSave');
-	  });
+            <!-- Formulário de Login -->
+            <div id="login-form" class="tab-content active">
+                <form action="processar.php" method="POST">
+                    <input type="hidden" name="acao" value="login">
+                    
+                    <div class="form-group">
+                        <label for="login-email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="login-email" name="email" required 
+                               placeholder="seu@email.com">
+                    </div>
 
-	  //admin account
-	  $router->mount('/myaccount', function() use ($router, $tpl) {
-		  $router->get('/', 'Admin@Account');
-		  $router->get('/password', 'Admin@Password');
-	  });
+                    <div class="form-group">
+                        <label for="login-senha">
+                            <i class="fas fa-lock"></i> Senha
+                        </label>
+                        <input type="password" id="login-senha" name="senha" required 
+                               placeholder="Sua senha">
+                    </div>
 
-	  //admin gateways
-	  $router->mount('/gateways', function() use ($router, $tpl) {
-		  $router->get('/', 'Admin@Gateways');
-		  $router->get('/edit/(\d+)', 'Admin@GatewayEdit');
-	  });
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
 
-	  //admin permissions
-	  $router->mount('/permissions', function() use ($router, $tpl) {
-		  $router->get('/', 'Admin@Permissions');
-		  $router->get('/privileges/(\d+)', 'Admin@Privileges');
-	  });
-	  
-	  //admin maintenance manager
-	  $router->get('/maintenance', 'Admin@Maintenance');
-	  
-	  //admin backup
-	  $router->get('/backup', 'Admin@Backup');
+                    <div class="form-footer">
+                        <a href="recuperar-senha.php" class="link">
+                            <i class="fas fa-key"></i> Esqueceu sua senha?
+                        </a>
+                    </div>
+                </form>
+            </div>
 
-	  //admin files
-	  $router->get('/files', 'Admin@Files');
-	  
-	  //admin newsletter
-	  $router->get('/mailer', 'Admin@Mailer');
+            <!-- Formulário de Cadastro -->
+            <div id="cadastro-form" class="tab-content">
+                <form action="processar.php" method="POST">
+                    <input type="hidden" name="acao" value="cadastro">
+                    
+                    <div class="form-group">
+                        <label for="cadastro-nome">
+                            <i class="fas fa-user"></i> Nome de Usuário
+                        </label>
+                        <input type="text" id="cadastro-nome" name="nome_usuario" required 
+                               placeholder="Escolha um nome de usuário" 
+                               pattern="[a-zA-Z0-9_]{3,50}"
+                               title="Use apenas letras, números e underscore. Mínimo 3 caracteres.">
+                    </div>
 
-	  //admin system
-	  $router->get('/system', 'Admin@System');
+                    <div class="form-group">
+                        <label for="cadastro-email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="cadastro-email" name="email" required 
+                               placeholder="seu@email.com">
+                    </div>
 
-	  //admin transactions
-	  $router->match('GET|POST', '/transactions', 'Admin@Transactions');
+                    <div class="form-group">
+                        <label for="cadastro-telefone">
+                            <i class="fab fa-whatsapp"></i> Telefone/WhatsApp
+                        </label>
+                        <input type="tel" id="cadastro-telefone" name="telefone" required 
+                               placeholder="(00) 00000-0000">
+                    </div>
 
-	  //admin configuration
-	  $router->get('/configuration', 'Admin@Configuration');
-	  
-	  //admin help
-	  $router->get('/help', 'Admin@Help');
+                    <div class="form-group">
+                        <label for="cadastro-senha">
+                            <i class="fas fa-lock"></i> Senha
+                        </label>
+                        <input type="password" id="cadastro-senha" name="senha" required 
+                               placeholder="Mínimo 6 caracteres"
+                               minlength="6">
+                        <small class="form-hint">
+                            <i class="fas fa-info-circle"></i> 
+                            A senha será armazenada sem criptografia para integração com outros sistemas
+                        </small>
+                    </div>
 
-	  //admin trash
-	  $router->get('/trash', 'Admin@Trash');
-	  
-	  //admin language manager
-	  $router->get('/language', 'Lang@Index');
-	  
-	  //logout
-	  $router->get('/logout', function()
-	  {
-		  App::Auth()->logout();
-		  Url::redirect(SITEURL . '/admin/');
-	  });
-  });
-  
-  //front end routes
-  $router->match('GET|POST', '/', 'Front@Index');
-  if(App::Core()->reg_allowed) {
-	  $router->match('GET|POST', '/register', 'Front@Register');
-  }
-  
-  $router->get('/contact', 'Front@Contact');
-  $router->get('/activation', 'Front@Activation');
-  $router->get('/packages', 'Front@Packages');
-  $router->get('/news', 'Front@News');
-  $router->get('/validate', 'Front@Validate');
-  $router->get('/privacy', 'Front@Privacy');
-  $router->match('GET|POST', '/password/([a-z0-9_-]+)', 'Front@Password');
-  
-  $router->match('GET|POST', '/page/([a-z0-9_-]+)', 'Front@Page');
+                    <div class="form-group">
+                        <label for="cadastro-regiao">
+                            <i class="fas fa-globe"></i> Região
+                        </label>
+                        <select id="cadastro-regiao" name="regiao" required>
+                            <option value="BRL">🇧🇷 Brasil (R$)</option>
+                            <option value="USD">🇺🇸 Estados Unidos ($)</option>
+                            <option value="EUR">🇪🇺 Europa (€)</option>
+                            <option value="JPY">🇯🇵 Japão (¥)</option>
+                        </select>
+                    </div>
 
-  $router->mount('/dashboard', function() use ($router, $tpl) {
-	  $router->match('GET|POST', '/', 'Front@Dashboard');
-	  $router->get('/history', 'Front@History');
-	  $router->get('/profile', 'Front@Profile');
-	  $router->get('/downloads', 'Front@Downloads');
-  });
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-user-plus"></i> Criar Conta
+                    </button>
 
-  //Custom Routes add here
-  $router->get('/logout', function()
-  {
-	  App::Auth()->logout();
-	  Url::redirect(SITEURL . '/');
-  });
+                    <div class="form-footer">
+                        <small>
+                            Ao criar uma conta, você concorda com nossos 
+                            <a href="<?php echo SITE_URL; ?>/termos" target="_blank">Termos de Serviço</a> e 
+                            <a href="<?php echo SITE_URL; ?>/privacidade" target="_blank">Política de Privacidade</a>
+                        </small>
+                    </div>
+                </form>
+            </div>
 
-  //404
-  $router->set404(function () use($core, $router)
-  {
-      $tpl = App::View(BASEPATH . 'view/'); 
-	  $tpl->dir = $router->segments[0] == "admin" ? 'admin/' : 'front/';
-	  $tpl->core = $core;
-	  $tpl->segments = $router->segments;
-	  $tpl->template = $router->segments[0] == "admin" ? 'admin/404.tpl.php' : 'front/404.tpl.php'; 
-	  $tpl->title = Lang::$word->META_ERROR; 
-	  $tpl->keywords = null;
-	  $tpl->description = null;
-	  $tpl->pages = Db::run()->select(Content::pTable, array("title", "slug"), array("active" => 1))->results();
-	  echo $tpl->render(); 
-  });
+            <!-- Links adicionais -->
+            <div class="auth-footer">
+                <p>Precisa de ajuda?</p>
+                <a href="https://wa.me/819042662408" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i> Falar com Suporte
+                </a>
+            </div>
+        </div>
+    </div>
 
-  // Run router
-  $router->run(function () use($tpl, $router)
-  {
-	  $tpl->segments = $router->segments;
-	  $tpl->core = App::Core();
-      echo $tpl->render(); 
-  });
- 
+    <script>
+        // Função para alternar entre tabs
+        function mostrarTab(tab) {
+            // Remove active de todos os botões e conteúdos
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Adiciona active ao botão e conteúdo selecionados
+            if (tab === 'login') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('login-form').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('cadastro-form').classList.add('active');
+            }
+        }
+
+        // Máscara para telefone
+        document.getElementById('cadastro-telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            if (value.length > 6) {
+                value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`;
+            } else if (value.length > 2) {
+                value = `(${value.slice(0,2)}) ${value.slice(2)}`;
+            } else if (value.length > 0) {
+                value = `(${value}`;
+            }
+            
+            e.target.value = value;
+        });
+
+        // Detectar região automaticamente (opcional)
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                const countryCode = data.country_code;
+                const select = document.getElementById('cadastro-regiao');
+                
+                if (countryCode === 'JP') {
+                    select.value = 'JPY';
+                } else if (countryCode === 'US') {
+                    select.value = 'USD';
+                } else if (['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 
+                           'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 
+                           'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'GB', 'NO', 'CH'].includes(countryCode)) {
+                    select.value = 'EUR';
+                }
+            })
+            .catch(() => {
+                // Se falhar, mantém Brasil como padrão
+            });
+    </script>
+</body>
+</html>
