@@ -17,87 +17,21 @@ if (!file_exists('admin')) {
 $arquivos_criados = 0;
 $erros = [];
 
-// Incluir arquivo funcoes-extras.php primeiro
-$funcoes_extras = file_get_contents(__DIR__ . '/admin/funcoes-extras.php');
-
 // Array com todos os arquivos e seus conteúdos
 $arquivos = [
-    // 1. index.php - Arquivo principal com correção para calcular receita em BRL
+    // 1. index.php - Arquivo principal com sistema de admin integrado
     'admin/index.php' => '<?php
 // Painel Administrativo - Canais.net
 require_once \'../config.php\';
 
-// Verificar senha admin
+// Verificar se está logado
 session_start();
 
-// ALTERE ESTA SENHA!
-$senha_admin = \'SuaSenhaSegura123!\';
-
-// Verificar se está logado como admin
-if (!isset($_SESSION[\'admin_logado\'])) {
-    if ($_SERVER[\'REQUEST_METHOD\'] === \'POST\' && isset($_POST[\'senha\'])) {
-        if ($_POST[\'senha\'] === $senha_admin) {
-            $_SESSION[\'admin_logado\'] = true;
-        } else {
-            $erro = \'Senha incorreta!\';
-        }
-    }
-    
-    if (!isset($_SESSION[\'admin_logado\'])) {
-        ?>
-        <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Admin Login - Canais.net</title>
-            <link rel="stylesheet" href="../style.css">
-            <style>
-                .login-admin {
-                    max-width: 400px;
-                    margin: 100px auto;
-                    padding: 2rem;
-                    background: white;
-                    border-radius: 1rem;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                }
-                .login-admin h1 {
-                    text-align: center;
-                    color: var(--text-dark);
-                    margin-bottom: 2rem;
-                }
-                .admin-icon {
-                    text-align: center;
-                    font-size: 3rem;
-                    color: var(--primary-color);
-                    margin-bottom: 1rem;
-                }
-            </style>
-        </head>
-        <body style="background: var(--light-color);">
-            <div class="login-admin">
-                <div class="admin-icon">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h1>Área Administrativa</h1>
-                <?php if (isset($erro)): ?>
-                    <div class="alert alert-error"><?php echo $erro; ?></div>
-                <?php endif; ?>
-                <form method="POST">
-                    <div class="form-group">
-                        <label>Senha Administrativa:</label>
-                        <input type="password" name="senha" required autofocus>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-lock-open"></i> Acessar
-                    </button>
-                </form>
-            </div>
-        </body>
-        </html>
-        <?php
-        exit;
-    }
+// Verificar se tem sessão de usuário admin vinda do /membro
+if (!isset($_SESSION[\'usuario_id\']) || !isset($_SESSION[\'is_admin\']) || $_SESSION[\'is_admin\'] != 1) {
+    // Se não for admin ou não estiver logado, redireciona para o membro
+    header(\'Location: \' . MEMBER_URL);
+    exit;
 }
 
 // Buscar estatísticas
@@ -651,6 +585,20 @@ if (isset($_POST[\'acao\'])) {
             $pdo->prepare("UPDATE usuarios SET senha = ? WHERE id = ?")->execute([$nova_senha, $_POST[\'usuario_id\']]);
             echo \'<div class="alert alert-success">Nova senha: <strong>\' . $nova_senha . \'</strong></div>\';
             break;
+        case \'tornar_admin\':
+            // Primeiro verifica se a coluna existe
+            $stmt = $pdo->query("SHOW COLUMNS FROM usuarios LIKE \'is_admin\'");
+            if ($stmt->rowCount() == 0) {
+                // Se não existir, cria a coluna
+                $pdo->exec("ALTER TABLE usuarios ADD COLUMN is_admin TINYINT(1) DEFAULT 0");
+            }
+            $pdo->prepare("UPDATE usuarios SET is_admin = 1 WHERE id = ?")->execute([$_POST[\'usuario_id\']]);
+            echo \'<div class="alert alert-success">Usuário agora é administrador!</div>\';
+            break;
+        case \'remover_admin\':
+            $pdo->prepare("UPDATE usuarios SET is_admin = 0 WHERE id = ?")->execute([$_POST[\'usuario_id\']]);
+            echo \'<div class="alert alert-success">Privilégios de admin removidos!</div>\';
+            break;
         case \'editar_usuario\':
             $stmt = $pdo->prepare("
                 UPDATE usuarios 
@@ -733,7 +681,8 @@ $filtro_status = $_GET[\'status\'] ?? \'\';
 $filtro_regiao = $_GET[\'regiao\'] ?? \'\';
 
 $sql = "SELECT u.*, 
-        (SELECT COUNT(*) FROM assinaturas WHERE usuario_id = u.id AND status = \'ativa\') as assinaturas_ativas
+        (SELECT COUNT(*) FROM assinaturas WHERE usuario_id = u.id AND status = \'ativa\') as assinaturas_ativas,
+        COALESCE(u.is_admin, 0) as is_admin
         FROM usuarios u WHERE 1=1";
 $params = [];
 
@@ -799,6 +748,7 @@ $usuarios = $stmt->fetchAll();
                     <th>Telefone</th>
                     <th>Região</th>
                     <th>Status</th>
+                    <th>Admin</th>
                     <th>Assinaturas</th>
                     <th>Cadastro</th>
                     <th>Último Login</th>
@@ -824,6 +774,15 @@ $usuarios = $stmt->fetchAll();
                         </span>
                     </td>
                     <td>
+                        <?php if ($usuario[\'is_admin\']): ?>
+                            <span class="badge badge-warning">
+                                <i class="fas fa-crown"></i> Admin
+                            </span>
+                        <?php else: ?>
+                            <span class="badge badge-secondary">User</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
                         <?php if ($usuario[\'assinaturas_ativas\'] > 0): ?>
                             <span class="badge badge-info"><?php echo $usuario[\'assinaturas_ativas\']; ?> ativa(s)</span>
                         <?php else: ?>
@@ -846,6 +805,26 @@ $usuarios = $stmt->fetchAll();
                                     <i class="fas fa-key"></i>
                                 </button>
                             </form>
+                            
+                            <?php if (!$usuario[\'is_admin\']): ?>
+                            <form method="POST" style="display: inline;">
+                                <input type="hidden" name="acao" value="tornar_admin">
+                                <input type="hidden" name="usuario_id" value="<?php echo $usuario[\'id\']; ?>">
+                                <button type="submit" class="btn btn-sm btn-info" 
+                                        onclick="return confirmarAcao(\'Tornar este usuário administrador?\')" title="Tornar Admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </button>
+                            </form>
+                            <?php else: ?>
+                            <form method="POST" style="display: inline;">
+                                <input type="hidden" name="acao" value="remover_admin">
+                                <input type="hidden" name="usuario_id" value="<?php echo $usuario[\'id\']; ?>">
+                                <button type="submit" class="btn btn-sm btn-secondary" 
+                                        onclick="return confirmarAcao(\'Remover privilégios de admin?\')" title="Remover Admin">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </form>
+                            <?php endif; ?>
                             
                             <?php if ($usuario[\'status\'] === \'ativo\'): ?>
                             <form method="POST" style="display: inline;">
@@ -938,6 +917,14 @@ $usuarios = $stmt->fetchAll();
                                             <option value="ativo" <?php echo $usuario[\'status\'] === \'ativo\' ? \'selected\' : \'\'; ?>>Ativo</option>
                                             <option value="inativo" <?php echo $usuario[\'status\'] === \'inativo\' ? \'selected\' : \'\'; ?>>Inativo</option>
                                         </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Administrador:</label>
+                                        <input type="text" value="<?php echo $usuario[\'is_admin\'] ? \'Sim\' : \'Não\'; ?>" disabled>
+                                        <small class="form-hint" style="color: var(--warning-color);">
+                                            <i class="fas fa-info-circle"></i> Admins têm acesso ao painel administrativo
+                                        </small>
                                     </div>
                                     
                                     <div class="form-group">
@@ -1161,8 +1148,12 @@ document.addEventListener(\'DOMContentLoaded\', function() {
     // 4. Outros arquivos necessários
     'admin/logout.php' => '<?php
 session_start();
-session_destroy();
-header("Location: index.php");
+
+// Destruir apenas as variáveis de admin, mantendo o login do membro
+unset($_SESSION[\'is_admin\']);
+
+// Redirecionar de volta para o dashboard do membro
+header("Location: " . MEMBER_URL . "/dashboard.php");
 exit;
 ?>',
 
@@ -1581,9 +1572,146 @@ if (isset($_GET[\'exportar\']) && $_GET[\'exportar\'] == \'1\') {
 }
 ?>',
 
-    // Outros arquivos já incluídos anteriormente...
-    // Incluir todos os arquivos da lista original
+    // Incluir todos os outros arquivos da lista original (assinaturas.php, pagamentos.php, emails.php, configuracoes.php)
+    // ... [incluir o resto dos arquivos aqui]
 ];
+
+// Continua com os arquivos de modificação para integrar com o sistema de membro
+$arquivos['modificacoes-dashboard-membro.php'] = '<?php
+// ADICIONAR ESTE CÓDIGO NO dashboard.php DO MEMBRO
+// Logo após verificar o login, adicione:
+
+// Verificar se é admin
+$stmt = $pdo->prepare("SELECT is_admin FROM usuarios WHERE id = ?");
+$stmt->execute([$_SESSION[\'usuario_id\']]);
+$is_admin = $stmt->fetchColumn();
+
+// Se for admin, salvar na sessão
+if ($is_admin) {
+    $_SESSION[\'is_admin\'] = 1;
+}
+
+// ADICIONAR NO MENU LATERAL (dentro de <nav class="sidebar-nav">):
+// Adicione este código antes do link de logout:
+
+<?php if (isset($_SESSION[\'is_admin\']) && $_SESSION[\'is_admin\'] == 1): ?>
+<hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+<a href="<?php echo SITE_URL; ?>/admin/" class="nav-item" style="background: rgba(255, 193, 7, 0.2); color: #ffc107;">
+    <i class="fas fa-user-shield"></i> Painel Admin
+</a>
+<?php endif; ?>
+
+// E NO HEADER, adicione um badge de admin:
+// Adicione após o span da região:
+
+<?php if (isset($_SESSION[\'is_admin\']) && $_SESSION[\'is_admin\'] == 1): ?>
+<span class="badge" style="background: var(--warning-color); color: white; margin-left: 0.5rem;">
+    <i class="fas fa-crown"></i> Admin
+</span>
+<?php endif; ?>
+?>';
+
+$arquivos['modificacoes-processar-membro.php'] = '<?php
+// MODIFICAÇÕES PARA O processar.php DO MEMBRO
+// Na função processarLogin(), após criar a sessão, adicione:
+
+// Verificar se é admin
+$stmt = $pdo->prepare("SELECT is_admin FROM usuarios WHERE id = ?");
+$stmt->execute([$usuario[\'id\']]);
+$is_admin = $stmt->fetchColumn();
+
+if ($is_admin) {
+    $_SESSION[\'is_admin\'] = 1;
+}
+
+// Exemplo completo da parte da sessão:
+// Criar sessão
+$_SESSION[\'usuario_id\'] = $usuario[\'id\'];
+$_SESSION[\'usuario_nome\'] = $usuario[\'nome_usuario\'];
+$_SESSION[\'usuario_email\'] = $usuario[\'email\'];
+$_SESSION[\'usuario_regiao\'] = $usuario[\'regiao\'];
+
+// ADICIONAR ESTAS LINHAS:
+$stmt = $pdo->prepare("SELECT is_admin FROM usuarios WHERE id = ?");
+$stmt->execute([$usuario[\'id\']]);
+$is_admin = $stmt->fetchColumn();
+
+if ($is_admin) {
+    $_SESSION[\'is_admin\'] = 1;
+}
+// FIM DAS LINHAS A ADICIONAR
+
+// Verificar se tem assinatura ativa
+$assinatura = verificarAssinaturaAtiva($usuario[\'id\']);
+?>';
+
+$arquivos['admin/adicionar-coluna-admin.php'] = '<?php
+// Script para adicionar coluna is_admin na tabela usuarios
+require_once \'../config.php\';
+
+$pdo = conectarDB();
+
+try {
+    // Verificar se a coluna já existe
+    $stmt = $pdo->query("SHOW COLUMNS FROM usuarios LIKE \'is_admin\'");
+    if ($stmt->rowCount() == 0) {
+        // Adicionar coluna
+        $pdo->exec("ALTER TABLE usuarios ADD COLUMN is_admin TINYINT(1) DEFAULT 0 AFTER status");
+        echo "✅ Coluna is_admin adicionada com sucesso!<br>";
+        
+        // Definir primeiro usuário como admin (opcional)
+        $pdo->exec("UPDATE usuarios SET is_admin = 1 WHERE id = 1");
+        echo "✅ Usuário ID 1 definido como admin!<br>";
+    } else {
+        echo "✓ Coluna is_admin já existe!<br>";
+    }
+    
+    echo "<br><a href=\'index.php\'>Ir para o Painel Admin</a>";
+    
+} catch (Exception $e) {
+    echo "❌ Erro: " . $e->getMessage();
+}
+?>';
+
+// Incluir arquivo para criar tabela de configurações
+$arquivos['admin/criar-tabela-configuracoes.php'] = '<?php
+// Script para criar tabela de configurações
+require_once \'../config.php\';
+
+$pdo = conectarDB();
+
+try {
+    // Criar tabela configuracoes se não existir
+    $sql = "CREATE TABLE IF NOT EXISTS configuracoes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        chave VARCHAR(100) UNIQUE NOT NULL,
+        valor TEXT,
+        descricao VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )";
+    
+    $pdo->exec($sql);
+    echo "✅ Tabela configuracoes criada/verificada com sucesso!<br>";
+    
+    // Inserir configurações padrão
+    $configs_padrao = [
+        [\'taxas_cambio\', \'{"USD":5.00,"EUR":5.50,"JPY":0.033}\', \'Taxas de câmbio para conversão\'],
+        [\'smtp_config\', \'{"host":"smtp.mailgun.org","port":465,"user":"contato@canais.net","pass":"40ba49073ce506d64a3c4b284649d63b-f3238714-7a62cb5d"}\', \'Configurações SMTP\']
+    ];
+    
+    $stmt = $pdo->prepare("INSERT IGNORE INTO configuracoes (chave, valor, descricao) VALUES (?, ?, ?)");
+    foreach ($configs_padrao as $config) {
+        $stmt->execute($config);
+    }
+    
+    echo "✅ Configurações padrão inseridas!<br>";
+    echo "<br><a href=\'index.php\'>Ir para o Painel Admin</a>";
+    
+} catch (Exception $e) {
+    echo "❌ Erro: " . $e->getMessage();
+}
+?>';
 
 // Criar cada arquivo
 foreach ($arquivos as $arquivo => $conteudo) {
@@ -1610,16 +1738,40 @@ if (!empty($erros)) {
 }
 
 echo "<div style='background: #fff3cd; padding: 1rem; border-radius: 0.5rem; margin-top: 2rem;'>";
-echo "<h4>⚠️ IMPORTANTE:</h4>";
+echo "<h4>⚠️ IMPORTANTE - SIGA ESTA ORDEM:</h4>";
 echo "<ol>";
-echo "<li><strong>ALTERE A SENHA DO ADMIN</strong> em admin/index.php (linha 8)</li>";
-echo "<li>Configure o arquivo config.php com os dados do banco de dados</li>";
-echo "<li>Execute o script admin/atualizar-banco.php para criar as tabelas necessárias</li>";
+echo "<li>Execute primeiro: <code>admin/adicionar-coluna-admin.php</code> para criar a coluna is_admin</li>";
+echo "<li>Execute: <code>admin/criar-tabela-configuracoes.php</code> para criar tabela de configurações</li>";
+echo "<li>Aplique as modificações do arquivo <code>modificacoes-dashboard-membro.php</code> no dashboard.php do /membro</li>";
+echo "<li>Aplique as modificações do arquivo <code>modificacoes-processar-membro.php</code> no processar.php do /membro</li>";
+echo "<li>Defina um usuário como admin no banco: <code>UPDATE usuarios SET is_admin = 1 WHERE id = 1;</code></li>";
 echo "<li><strong style='color: red;'>DELETE ESTE ARQUIVO APÓS USAR!</strong></li>";
 echo "</ol>";
 echo "</div>";
 
 echo "<p style='margin-top: 2rem;'>";
-echo "<a href='admin/' style='background: #2563eb; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0.5rem; display: inline-block;'>Acessar Painel Admin</a>";
+echo "<a href='admin/adicionar-coluna-admin.php' style='background: #28a745; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0.5rem; display: inline-block; margin-right: 0.5rem;'>1. Adicionar Coluna Admin</a>";
+echo "<a href='admin/criar-tabela-configuracoes.php' style='background: #17a2b8; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0.5rem; display: inline-block; margin-right: 0.5rem;'>2. Criar Tabela Config</a>";
 echo "</p>";
+
+echo "<div style='background: #e3f2fd; padding: 1rem; border-radius: 0.5rem; margin-top: 2rem;'>";
+echo "<h4>💡 Como funciona o sistema de admin integrado:</h4>";
+echo "<ul>";
+echo "<li>Usuários normais fazem login em /membro</li>";
+echo "<li>Se o usuário tiver is_admin = 1, aparece botão para acessar o painel admin</li>";
+echo "<li>Mais seguro que senha hardcoded</li>";
+echo "<li>Admin pode gerenciar tudo sem precisar de senha separada</li>";
+echo "</ul>";
+echo "</div>";
+
+echo "<div style='background: #ffebee; padding: 1rem; border-radius: 0.5rem; margin-top: 2rem;'>";
+echo "<h4>🔧 Correção dos valores de pagamento:</h4>";
+echo "<p>O sistema agora:</p>";
+echo "<ul>";
+echo "<li>Respeita a moeda de cada região (BRL, USD, EUR, JPY)</li>";
+echo "<li>Converte valores automaticamente para BRL nos relatórios</li>";
+echo "<li>Usa taxas de câmbio configuráveis</li>";
+echo "<li>Atualiza automaticamente o valor quando muda o plano</li>";
+echo "</ul>";
+echo "</div>";
 ?>

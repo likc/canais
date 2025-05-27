@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar_massa'])) {
 // Função para enviar email em massa
 function enviarEmailMassa($assunto, $conteudo, $destinatarios, $categoria) {
     $pdo = conectarDB();
+    require_once '../funcoes-email.php';
     
     // Determinar lista de emails
     $sql = "SELECT DISTINCT u.id, u.email, u.nome_usuario FROM usuarios u ";
@@ -69,15 +70,12 @@ function enviarEmailMassa($assunto, $conteudo, $destinatarios, $categoria) {
     $enviados = 0;
     $falhas = 0;
     
-    // Template do email
-    $template = templateBase($conteudo);
-    
     foreach ($usuarios as $usuario) {
         // Substituir variáveis
         $corpo_final = str_replace(
             ['{nome}', '{email}'],
             [$usuario['nome_usuario'], $usuario['email']],
-            $template
+            $conteudo
         );
         
         $enviado = enviarEmailComLog($usuario['email'], 'boletim', [

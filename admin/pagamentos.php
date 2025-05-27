@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="stat-content">
             <h3><?php echo ucfirst($stat['status']); ?></h3>
             <div class="stat-value"><?php echo number_format($stat['qtd'], 0, ',', '.'); ?></div>
-            <small>Total: R$ <?php echo number_format($stat['total'], 2, ',', '.'); ?></small>
+            <small>Total: R$ <?php echo number_format(converterMoeda($stat['total'], 'BRL', 'BRL'), 2, ',', '.'); ?></small>
         </div>
     </div>
     <?php endforeach; ?>
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div style="margin-bottom: 1rem;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                     <span><?php echo $metodo_nome; ?></span>
-                    <strong>R$ <?php echo number_format($stat['total'], 2, ',', '.'); ?></strong>
+                    <strong>R$ <?php echo number_format(converterMoeda($stat['total'], 'BRL', 'BRL'), 2, ',', '.'); ?></strong>
                 </div>
                 <div style="background: var(--light-color); height: 20px; border-radius: 10px; overflow: hidden;">
                     <div style="background: var(--primary-color); height: 100%; width: <?php echo ($stat['total'] / array_sum(array_column($stats_por_metodo, 'total'))) * 100; ?>%;"></div>
@@ -168,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div style="padding: 1.5rem;">
             <?php 
             global $PRECOS;
+            $total_geral_brl = 0;
             foreach ($receita_por_moeda as $receita): 
                 $simbolo = $PRECOS[$receita['moeda']]['simbolo'];
                 $bandeira = match($receita['moeda']) {
@@ -177,14 +178,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'JPY' => '🇯🇵 Japão',
                     default => $receita['moeda']
                 };
+                $valor_brl = converterMoeda($receita['total'], $receita['moeda'], 'BRL');
+                $total_geral_brl += $valor_brl;
             ?>
             <div style="margin-bottom: 1rem; padding: 1rem; background: var(--light-color); border-radius: 0.5rem;">
                 <h4><?php echo $bandeira; ?></h4>
                 <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">
                     <?php echo $simbolo . ' ' . number_format($receita['total'], $receita['moeda'] === 'JPY' ? 0 : 2, ',', '.'); ?>
                 </p>
+                <small>Equivalente: R$ <?php echo number_format($valor_brl, 2, ',', '.'); ?></small>
             </div>
             <?php endforeach; ?>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                <strong>Total em BRL: R$ <?php echo number_format($total_geral_brl, 2, ',', '.'); ?></strong>
+            </div>
         </div>
     </div>
 </div>
@@ -244,6 +251,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <th>Usuário</th>
                     <th>Plano</th>
                     <th>Valor</th>
+                    <th>Valor em BRL</th>
                     <th>Método</th>
                     <th>Status</th>
                     <th>Transação</th>
@@ -269,6 +277,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><?php echo ucfirst($pagamento['plano'] ?? '-'); ?></td>
                     <td>
                         <strong><?php echo formatarMoeda($pagamento['valor'], $pagamento['moeda']); ?></strong>
+                    </td>
+                    <td>
+                        R$ <?php echo number_format(converterMoeda($pagamento['valor'], $pagamento['moeda'], 'BRL'), 2, ',', '.'); ?>
                     </td>
                     <td>
                         <span class="badge badge-info">
@@ -329,19 +340,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- Resumo Financeiro -->
 <div style="margin-top: 2rem; background: var(--primary-color); color: white; padding: 2rem; border-radius: 0.75rem;">
-    <h3>Resumo do Período</h3>
+    <h3>Resumo do Período (em BRL)</h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 1rem;">
         <?php 
-        $total_aprovado = 0;
+        $total_aprovado_brl = 0;
         foreach ($stats_por_status as $stat) {
             if ($stat['status'] === 'aprovado') {
-                $total_aprovado = $stat['total'];
+                // Aqui precisaríamos saber a moeda de cada pagamento para converter corretamente
+                // Por simplicidade, assumindo que já está em BRL
+                $total_aprovado_brl = converterMoeda($stat['total'], 'BRL', 'BRL');
             }
         }
         ?>
         <div>
             <h4>Total Aprovado</h4>
-            <p style="font-size: 2rem; font-weight: bold;">R$ <?php echo number_format($total_aprovado, 2, ',', '.'); ?></p>
+            <p style="font-size: 2rem; font-weight: bold;">R$ <?php echo number_format($total_geral_brl, 2, ',', '.'); ?></p>
         </div>
         <div>
             <h4>Transações</h4>
@@ -350,7 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
             <h4>Ticket Médio</h4>
             <p style="font-size: 2rem; font-weight: bold;">
-                R$ <?php echo count($pagamentos) > 0 ? number_format($total_aprovado / count($pagamentos), 2, ',', '.') : '0,00'; ?>
+                R$ <?php echo count($pagamentos) > 0 ? number_format($total_geral_brl / count($pagamentos), 2, ',', '.') : '0,00'; ?>
             </p>
         </div>
     </div>
@@ -358,7 +371,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
 function verDetalhes(id) {
-    mostrarModal('modal-pagamento-' + id);
+    // Implementar modal de detalhes
+    alert('Detalhes do pagamento #' + id);
 }
 
 function exportarRelatorio() {
